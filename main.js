@@ -21,6 +21,7 @@ window.onload = function() {
         total += parseInt(document.querySelector('input[name="pregunta3"]:checked').value);
         total += parseInt(document.getElementById('pregunta4').value);
         total += parseInt(document.querySelector('input[name="pregunta5"]:checked').value);
+        total += parseInt(document.querySelector('input[name="pregunta6"]:checked').value);
 
         setGaugeValue(total/10, total);
 
