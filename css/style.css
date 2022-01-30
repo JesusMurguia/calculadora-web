@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
 body{
-    font-family: 'Space Mono', monospace;
+    font-family: 'Poppins', sans-serif;
     --strong-cyan: #26c0ab;
     --very-dark-cyan: #00494d;
     --dark-grayish-cyan: #5e7a7d;
@@ -16,14 +17,16 @@ body{
     justify-content: center;
     min-height: 100vh;
 
+    font-size: 14px;
+
 
     background: url(../images/Shiny-Overlay.svg) var(--light-grayish-cyan);
     background-size: cover;
 }
 
 main{
-    max-width: 65em;
-    height: 40em;
+    max-width: 75em;
+    height: 50em;
     border-radius: 1em;
     box-shadow: 0 0.5em 1em var(--dark-grayish-cyan);
     background: url(../images/blurry-gradient-haikei.svg) var(--white);
@@ -59,10 +62,14 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
+    justify-content: space-evenly!important;
     height: 100%;
     padding:2em;
     color: var(--very-dark-cyan);
+}
+
+.hidden{
+    display: none;
 }
 
 .last-section h3{
@@ -120,6 +127,10 @@ main{
     box-shadow:  0 .125em .25em var(--dark-grayish-cyan);
 }
 
+.btn-send{
+    width: 30%;
+}
+
 .btn-back{
     border: 2px solid var(--very-dark-cyan);
     background: var(--white);
@@ -154,7 +165,7 @@ main{
 
 @media screen and (max-width: 768px){
     .container-fluid{
-        width: 100%;
+        width: 90%;
         height: 100%;
         margin:1em;
     }

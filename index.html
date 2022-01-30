@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="./css/style.css" rel="stylesheet">
+    <script src="./main.js"></script>
     <title>Calculadora web</title>
 </head>
 <body>
@@ -15,42 +16,44 @@
                 <div class="row h-100">
                     <div class="col-12 result-section p-2">
                         <div class="category-description-section">
-                            <h2>2. Categoria 2</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, asperiores. Fugit dignissimos blanditiis aliquid officia ipsam, ratione asperiores.</p>
+                            <h2>Test de Fagerström</h2>
+                            <p>Este test sirve para evaluar el grado de dependencia física de la nicotina.</p>
+                        </div>
+                        <div id="result-div" class="category-description-section-2 hidden">
+                            <h2>Resultado</h2>
+                            <p id="result-description">Cancer :D</p>
                         </div>
                             <div class="row page-indicator ms-2 me-2">
-                                <div class="col page-indicator-item"></div>
-                                <div class="col page-indicator-item selected"></div>
-                                <div class="col page-indicator-item"></div>
-                                <div class="col page-indicator-item"></div>
+                                <div id="page-1" class="col page-indicator-item selected"></div>
+                                <div id="page-2" class="col page-indicator-item"></div>
                             </div>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-7 last-section align-items-start justify-content-between">
                 <div class="row">
-                    <div class="mb-3 row">
+                    <div class="mb-3 row mt-2">
                         <div class="col-12">
-                        <label for="select-1" class="form-label">¿Cuánto tardas en encender tu primer cigarrillo al levantarte?</label>
+                        <label for="pregunta1" class="form-label">¿Cuánto tiempo pasa entre que se levanta y fuma su primer cigarrillo?</label>
                         </div>
                             <div class="col-12">
-                                <select id="select-1" class="form-select" aria-label="Default select example">
-                                    <option selected>5 minutos</option>
-                                    <option value="1">15 minutos</option>
-                                    <option value="2">30 minutos</option>
-                                    <option value="3">1 hora</option>
+                                <select id="pregunta1" class="form-select" aria-label="Default select example">
+                                    <option selected value="3">Hasta 5 minutos</option>
+                                    <option value="2">Entre 6 y 30 minutos</option>
+                                    <option value="1">31 - 60 minutos</option>
+                                    <option value="0">Más de 60 minutos</option>
                                   </select>
                             </div>
                       </div>
                         <div class="mb-3 row">
                             <div class="col-12">
-                            <label for="check-1" class="form-label">¿Te cuesta contenerte de fumar en los lugares en los que está prohibido?</label>
+                            <label for="pregunta" class="form-label">¿Encuentra difícil no fumar en lugares donde esta prohibido, como la biblioteca o el cine?</label>
                             </div>
                             <div class="col-12">
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1">
+                                            <input class="form-check-input" type="radio" name="pregunta2" id="flexRadioDefault1" value="1">
                                             <label class="form-check-label" for="flexRadioDefault1">
                                               Sí
                                             </label>
@@ -58,7 +61,7 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault2" checked>
+                                            <input class="form-check-input" type="radio" name="pregunta2" id="flexRadioDefault2"  value="1" checked>
                                             <label class="form-check-label" for="flexRadioDefault2">
                                               No
                                             </label>
@@ -69,13 +72,13 @@
                         </div>
                         <div class="mb-3 row">
                             <div class="col-12">
-                            <label for="check-2" class="form-label">¿Cual cigarro te costaría más dejar?</label>
+                            <label for="check-2" class="form-label">¿Que cigarrillo le molesta más dejar de fumar?</label>
                             </div>
                             <div class="col-12">
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault3">
+                                            <input class="form-check-input" type="radio" name="pregunta3" id="flexRadioDefault3"  value="1">
                                             <label class="form-check-label" for="flexRadioDefault3">
                                                 El primero de la mañana
                                             </label>
@@ -83,7 +86,7 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault4" checked>
+                                            <input class="form-check-input" type="radio" name="pregunta3" id="flexRadioDefault4"  value="0" checked>
                                             <label class="form-check-label" for="flexRadioDefault4">
                                               Cualquier otro
                                             </label>
@@ -96,36 +99,36 @@
                         </div>
                         <div class="mb-3 row">
                             <div class="col-12">
-                            <label for="select-1" class="form-label">¿Cuántos cigarros fumas al dia?</label>
+                            <label for="select-1" class="form-label">¿Cuántos cigarrillos fuma cada día?</label>
                             </div>
                                 <div class="col-12">
-                                    <select id="select-2" class="form-select " aria-label="Default select example">
-                                        <option selected>10 o menos</option>
-                                        <option value="1">Mas de 10</option>
-                                        <option value="2">Mas de 20</option>
-                                        <option value="3">Mas de 30</option>
+                                    <select id="pregunta4" class="form-select " aria-label="Default select example">
+                                        <option value="0" selected>10 o menos</option>
+                                        <option value="1">11 - 20</option>
+                                        <option value="2">21 - 30</option>
+                                        <option value="3">31 o más</option>
                                       </select>
                                 </div>
                           </div>
                           <div class="mb-3 row">
                             <div class="col-12">
-                            <label for="check-2" class="form-label">¿Fumas por la mañana o por la tarde?</label>
+                            <label for="check-2" class="form-label">¿Fuma con más frecuencia durante las primeras horas después de levantarse que durante el resto del día?</label>
                             </div>
                             <div class="col-12">
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault3" id="flexRadioDefault5">
+                                            <input class="form-check-input" type="radio" name="pregunta5" id="flexRadioDefault5" value="1">
                                             <label class="form-check-label" for="flexRadioDefault5">
-                                                Mañana
+                                                Sí
                                             </label>
                                           </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault3" id="flexRadioDefault6" checked>
+                                            <input class="form-check-input" type="radio" name="pregunta5" id="flexRadioDefault6" value="0" checked>
                                             <label class="form-check-label" for="flexRadioDefault6">
-                                              Tarde
+                                              No
                                             </label>
                                           </div>
                                     </div>
@@ -134,21 +137,21 @@
                         </div>
                         <div class="mb-3 row">
                             <div class="col-12">
-                            <label for="check-1" class="form-label">¿Fumas cuando estás enfermo?</label>
+                            <label for="check-1" class="form-label">¿Fuma aunque esté tan enfermo que tenga que guardar cama la mayor parte del día?</label>
                             </div>
                             <div class="col-12">
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault4" id="flexRadioDefault7">
-                                            <label class="form-check-label" for="flexRadioDefault7">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault4" id="flexRadioDefault7" value="1">
+                                            <label class="form-check-label" for="pregunta6">
                                               Sí
                                             </label>
                                     </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault4" id="flexRadioDefault8" checked>
+                                            <input class="form-check-input" type="radio" name="pregunta6" id="flexRadioDefault8" value="0" checked>
                                             <label class="form-check-label" for="flexRadioDefault8">
                                               No
                                             </label>
@@ -159,9 +162,8 @@
                         </div>
                 </div>
                 <div class="row navigation-row w-100 pb-1 pe-0 ps-0">
-                    <div class="col-12  pe-0 ps-0">
-                        <button class="btn btn-next float-end">Siguiente</button>
-                        <button class="btn btn-back float-start">Anterior</button>
+                    <div class="col-12  pe-0 ps-0 text-center">
+                        <button id="submit-btn" class="btn btn-send">Enviar</button>
                     </div>
                 </div>
                 
