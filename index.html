@@ -24,149 +24,116 @@
                       <div class="flip-card-back">
                         <div id="result-div" class="category-description-section">
                             <h2>Resultado</h2>
-                            <p id="result-description">Cancer :D</p>
+                            <p id="result-description" class="mb-5">lorem ipsum</p>
+                            <div class="gauge">
+                                <div class="gauge__body">
+                                  <div class="gauge__fill"></div>
+                                  <div class="gauge__cover"></div>
+                                </div>
+                              </div>
                         </div>
                       </div>
                     </div>
                   </div>
             </div>
-            <div class="col-12 col-md-7 last-section align-items-start justify-content-between">
+            <div class="col-12 col-md-7 last-section align-items-center justify-content-between">
                 <div class="row">
-                    <div class="mb-3 row mt-2">
-                        <div class="col-12">
-                        <label for="pregunta1" class="form-label">¿Cuánto tiempo pasa entre que se levanta y fuma su primer cigarrillo?</label>
-                        </div>
-                            <div class="col-12">
-                                <select id="pregunta1" class="form-select" aria-label="Default select example">
-                                    <option selected value="3">Hasta 5 minutos</option>
-                                    <option value="2">Entre 6 y 30 minutos</option>
-                                    <option value="1">31 - 60 minutos</option>
-                                    <option value="0">Más de 60 minutos</option>
+                    <div id="second-section-1" class="col-12 ">
+                        <form onsubmit="handleSubmit()">
+                            <!-- pregunta 1 -->
+                            <div class="mb-3">
+                                <label for="pregunta1" class="form-label">¿Cuánto tiempo pasa entre que se levanta y fuma su primer cigarrillo?</label>
+                                    <select id="pregunta1" class="form-select" aria-label="Pregunta 1">
+                                        <option selected value="3">Hasta 5 minutos</option>
+                                        <option value="2">Entre 6 y 30 minutos</option>
+                                        <option value="1">31 - 60 minutos</option>
+                                        <option value="0">Más de 60 minutos</option>
+                                    </select>
+                              </div>
+                            <!-- pregunta 2 -->
+                            <div class="mb-3">
+                                <label for="pregunta2" class="form-label">¿Encuentra difícil no fumar en lugares donde esta prohibido, como la biblioteca o el cine?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="pregunta2" id="pregunta2-respuesta1" value="1">
+                                    <label class="form-check-label" for="pregunta2-respuesta1">
+                                      Sí
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="pregunta2" id="pregunta2-respuesta2"  value="0" checked>
+                                    <label class="form-check-label" for="pregunta2-respuesta2">
+                                      No
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- pregunta 3 -->
+                            <div class="mb-3">
+                                <label for="pregunta3" class="form-label">¿Que cigarrillo le molesta más dejar de fumar?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="pregunta3" id="pregunta3-respuesta1"  value="1">
+                                    <label class="form-check-label" for="pregunta3-respuesta1">
+                                        El primero de la mañana
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="pregunta3" id="pregunta3-respuesta2"  value="0" checked>
+                                    <label class="form-check-label" for="pregunta3-respuesta2">
+                                      Cualquier otro
+                                    </label>
+                                  </div>
+                            </div>
+                            <!-- pregunta 4 -->
+                            <div class="mb-3">
+                                <label for="pregunta4" class="form-label">¿Cuántos cigarrillos fuma cada día?</label>
+                                <select id="pregunta4" class="form-select " aria-label="pregunta4">
+                                    <option value="0" selected>10 o menos</option>
+                                    <option value="1">11 - 20</option>
+                                    <option value="2">21 - 30</option>
+                                    <option value="3">31 o más</option>
                                   </select>
                             </div>
-                      </div>
-                        <div class="mb-3 row">
-                            <div class="col-12">
-                            <label for="pregunta" class="form-label">¿Encuentra difícil no fumar en lugares donde esta prohibido, como la biblioteca o el cine?</label>
-                            </div>
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="pregunta2" id="flexRadioDefault1" value="1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                              Sí
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="pregunta2" id="flexRadioDefault2"  value="1" checked>
-                                            <label class="form-check-label" for="flexRadioDefault2">
-                                              No
-                                            </label>
-                                          </div>
-                                    </div>
-                            </div>
-                              </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <div class="col-12">
-                            <label for="check-2" class="form-label">¿Que cigarrillo le molesta más dejar de fumar?</label>
-                            </div>
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="pregunta3" id="flexRadioDefault3"  value="1">
-                                            <label class="form-check-label" for="flexRadioDefault3">
-                                                El primero de la mañana
-                                            </label>
-                                          </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="pregunta3" id="flexRadioDefault4"  value="0" checked>
-                                            <label class="form-check-label" for="flexRadioDefault4">
-                                              Cualquier otro
-                                            </label>
-                                          </div>
-                                    </div>
+                            <!-- pregunta 5 -->
+                            <div class="mb-3">
+                             <label for="pregunta5" class="form-label">¿Fuma con más frecuencia durante las primeras horas después de levantarse que durante el resto del día?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="pregunta5" id="pregunta5-respuesta1" value="1">
+                                    <label class="form-check-label" for="pregunta5-respuesta1">
+                                        Sí
+                                    </label>
                                 </div>
-                                
-                                  
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <div class="col-12">
-                            <label for="select-1" class="form-label">¿Cuántos cigarrillos fuma cada día?</label>
-                            </div>
-                                <div class="col-12">
-                                    <select id="pregunta4" class="form-select " aria-label="Default select example">
-                                        <option value="0" selected>10 o menos</option>
-                                        <option value="1">11 - 20</option>
-                                        <option value="2">21 - 30</option>
-                                        <option value="3">31 o más</option>
-                                      </select>
-                                </div>
-                          </div>
-                          <div class="mb-3 row">
-                            <div class="col-12">
-                            <label for="check-2" class="form-label">¿Fuma con más frecuencia durante las primeras horas después de levantarse que durante el resto del día?</label>
-                            </div>
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="pregunta5" id="flexRadioDefault5" value="1">
-                                            <label class="form-check-label" for="flexRadioDefault5">
-                                                Sí
-                                            </label>
-                                          </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="pregunta5" id="flexRadioDefault6" value="0" checked>
-                                            <label class="form-check-label" for="flexRadioDefault6">
-                                              No
-                                            </label>
-                                          </div>
-                                    </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="pregunta5" id="pregunta5-respuesta2" value="0" checked>
+                                    <label class="form-check-label" for="pregunta5-respuesta2">
+                                        No
+                                    </label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <div class="col-12">
-                            <label for="check-1" class="form-label">¿Fuma aunque esté tan enfermo que tenga que guardar cama la mayor parte del día?</label>
-                            </div>
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault4" id="flexRadioDefault7" value="1">
-                                            <label class="form-check-label" for="pregunta6">
-                                              Sí
-                                            </label>
-                                    </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="pregunta6" id="flexRadioDefault8" value="0" checked>
-                                            <label class="form-check-label" for="flexRadioDefault8">
-                                              No
-                                            </label>
-                                          </div>
-                                    </div>
+                            <!-- pregunta 6 -->
+                            <div class="mb-3">
+                                <label for="pregunta6" class="form-label">¿Fuma aunque esté tan enfermo que tenga que guardar cama la mayor parte del día?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="pregunta5-respuesta1" id="pregunta5-respuesta1" value="1">
+                                    <label class="form-check-label" for="pregunta5-respuesta1">
+                                        Sí
+                                    </label>
                                 </div>
-                              </div>
-                        </div>
-                </div>
-                <div class="row navigation-row w-100 pb-1 pe-0 ps-0">
-                    <div class="col-12  pe-0 ps-0 text-center">
-                        <button id="submit-btn" class="btn btn-send">Enviar</button>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="pregunta5-respuesta1" id="pregunta5-respuesta2" value="0" checked>
+                                    <label class="form-check-label" for="pregunta5-respuesta2">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- submit -->
+                            <button id="submit" type="submit" class="btn">Enviar</button>
+                          </form>
+                    </div>
+                    <div id="second-section-2" class="col-12 hidden">
+                        <h1>Sugerencias para personas con dependencia baja</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus ipsa consectetur odio id dolores error quam nisi nobis, nemo rerum nesciunt fugit officia consequatur laboriosam, minima earum tenetur, fuga laudantium.</p>
+                        <button id="reset" type="button" class="btn">Intentar de nuevo</button>
                     </div>
                 </div>
-                
             </div>
         </div>
       </main>
