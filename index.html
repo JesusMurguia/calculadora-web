@@ -13,22 +13,22 @@
     <main class="container-fluid">
         <div class="row h-100">
             <div class="col-12 col-md-5 first-section">
-                <div class="row h-100">
-                    <div class="col-12 result-section p-2">
+                <div id="flip-card" class="result-section flip-card">
+                    <div id="flip-card-inner" class="flip-card-inner">
+                      <div class="flip-card-front">
                         <div class="category-description-section">
                             <h2>Test de Fagerström</h2>
                             <p>Este test sirve para evaluar el grado de dependencia física de la nicotina.</p>
                         </div>
-                        <div id="result-div" class="category-description-section-2 hidden">
+                      </div>
+                      <div class="flip-card-back">
+                        <div id="result-div" class="category-description-section">
                             <h2>Resultado</h2>
                             <p id="result-description">Cancer :D</p>
                         </div>
-                            <div class="row page-indicator ms-2 me-2">
-                                <div id="page-1" class="col page-indicator-item selected"></div>
-                                <div id="page-2" class="col page-indicator-item"></div>
-                            </div>
+                      </div>
                     </div>
-                </div>
+                  </div>
             </div>
             <div class="col-12 col-md-7 last-section align-items-start justify-content-between">
                 <div class="row">
