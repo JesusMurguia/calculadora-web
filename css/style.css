@@ -18,7 +18,7 @@ body{
     font-size: 14px;
 
 
-    background: url(../images/Shiny-Overlay.svg) var(--light-grayish-cyan);
+    background: url(../images/Shiny-Overlay.png) var(--light-grayish-cyan);
     background-size: cover;
 }
 
@@ -27,7 +27,7 @@ main{
     height: 45em;
     border-radius: 1em;
     box-shadow: 0 0.5em 1em var(--dark-grayish-cyan);
-    background: url(../images/blurry-gradient-haikei.svg) var(--white);
+    background:  hsl(189, 41%, 97%);
     background-size: cover;
 }
 
@@ -73,7 +73,7 @@ main{
   }
   
   .flip-card-front {
-    background: url(../images/Shiny-Overlay-2.svg) var(--very-dark-cyan);
+    background: url(../images/Shiny-Overlay-2.png) var(--very-dark-cyan);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border-radius: 1em;
@@ -81,7 +81,7 @@ main{
   }
   
   .flip-card-back {
-    background: url(../images/Shiny-Overlay-2.svg) var(--very-dark-cyan);
+    background: url(../images/Shiny-Overlay-2.png) var(--very-dark-cyan);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border-radius: 1em;
