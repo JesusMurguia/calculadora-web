@@ -18,7 +18,7 @@ body{
     font-size: 14px;
 
 
-    background: url(../images/Shiny-Overlay.png) var(--light-grayish-cyan);
+    background: url(../images/Shiny-Overlay.png);
     background-size: cover;
 }
 
@@ -73,7 +73,7 @@ main{
   }
   
   .flip-card-front {
-    background: url(../images/Shiny-Overlay-2.png) var(--very-dark-cyan);
+    background: url(../images/Shiny-Overlay-2.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border-radius: 1em;
@@ -81,7 +81,7 @@ main{
   }
   
   .flip-card-back {
-    background: url(../images/Shiny-Overlay-2.png) var(--very-dark-cyan);
+    background: url(../images/Shiny-Overlay-2.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border-radius: 1em;
