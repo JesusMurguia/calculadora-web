@@ -25,8 +25,8 @@ body{
 }
 
 main{
-    max-width: 75em;
-    height: 50em;
+    max-width: 65em;
+    height: 45em;
     border-radius: 1em;
     box-shadow: 0 0.5em 1em var(--dark-grayish-cyan);
     background: url(../images/blurry-gradient-haikei.svg) var(--white);
@@ -102,7 +102,7 @@ main{
 }
 
 .hidden{
-    display: none;
+    display: none!important;
 }
 
 .last-section h3{
@@ -267,6 +267,8 @@ main{
     }
     
 }
+
+
 
 .fadeIn {
     -webkit-animation-name: fadeIn;
