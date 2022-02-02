@@ -5,7 +5,6 @@ window.onload = function() {
 
     const flipCardInner = document.getElementById('flip-card-inner');
     
-    const meter = document.getElementById('meter');
 
     const secondSection1 = document.getElementById('second-section-1');
     const secondSection2 = document.getElementById('second-section-2');
@@ -23,12 +22,20 @@ window.onload = function() {
         total += parseInt(document.querySelector('input[name="pregunta5"]:checked').value);
         total += parseInt(document.querySelector('input[name="pregunta6"]:checked').value);
 
-        setGaugeValue(total/10, total);
+        
 
         flipCardInner.classList.add('flipped');
 
         secondSection1.classList.add('hidden');
         secondSection2.classList.remove('hidden');
+
+        
+        setGaugeValue(0, 0);
+
+        setTimeout(function() {
+            setGaugeValue(total/10, total);
+        }, 500);
+
 
         window.scrollTo(0, 0);
 
