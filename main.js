@@ -94,7 +94,7 @@ function handleSubmit() {
     if(!edad.value){
         edad.classList.add('error');
     }
-    else if(edad && edadFumador){
+    else if(edad.value && edadFumador.value){
 
     const respuestas = [
         parseInt(document.getElementById('pregunta1').value),
