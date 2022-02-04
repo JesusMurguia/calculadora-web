@@ -36,7 +36,8 @@
             </div>
             <div class="col-12 col-md-7 last-section align-items-center justify-content-between">
                 <div class="row">
-                    <div id="second-section-1" class="col-12 ">
+                    <!--  -->
+                    <div id="second-section-1" class="col-12">
                         <form onsubmit="handleSubmit()">
                             <!-- pregunta 1 -->
                             <div class="mb-3">
@@ -147,15 +148,51 @@
                             </div>
                             </div>
 
-                            <!-- submit -->
-                            <button id="submit" type="button" class="btn" onclick="handleSubmit()">Enviar</button>
+                            <!-- siguiente -->
+                            <button id="nextbtn" type="button" class="btn" onclick="handleSiguiente()">Siguiente</button>
                           </form>
                     </div>
+                    <!--  -->
                     <div id="second-section-2" class="col-12 hidden">
-                        <h1 id="recomendacion-titulo">Sugerencias para personas con dependencia baja</h1>
-                        <p id="recomendacion-texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus ipsa consectetur odio id dolores error quam nisi nobis, nemo rerum nesciunt fugit officia consequatur laboriosam, minima earum tenetur, fuga laudantium.</p>
-                        <button id="reset" type="button" class="btn" onclick="handleReset()">Intentar de nuevo</button>
+                        <h3>Información Adicional</h3>
+                        <div class="row mt-4">
+                            <form>
+                                <div class="col optional-form">
+                                    <div class="mb-3">
+                                        <label for="edad" class="form-label">Edad:</label>
+                                        <input type="number" class="form-control" id="edad" placeholder="18" min="1" max="99" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="genero" class="form-label">Genero:</label>
+                                        <select id="genero" class="form-select " aria-label="sexo">
+                                            <option value="M" selected>Masculino</option>
+                                            <option value="F">Femenino</option>
+                                          </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="edad-fumador" class="form-label">Edad a la que empezó a fumar:</label>
+                                        <input type="number" class="form-control" id="edad-fumador" placeholder="18" min="1" max="99" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="cigarrillos-dia" class="form-label">Cigarrillos por día</label>
+                                        <select id="cigarrillos-dia" class="form-select" aria-label="cigarrillos-dia">
+                                            <option value="Menos de 5" selected>Menos de 5</option>
+                                            <option value="6 a 10">6 a 10</option>
+                                            <option value="11 a 20">11 a 20</option>
+                                            <option value="Más de 20">Más de 20</option>
+                                          </select>
+                                    <button id="submit" type="button" class="btn mt-4 w-100" onclick="handleSubmit()">Enviar</button>
+                                </div>
+                            </div>
+                            </form>
                     </div>
+                </div>
+                 <!--  -->
+                 <div id="second-section-3" class="col-12 hidden">
+                    <h2 id="recomendacion-titulo">Sugerencias para personas con dependencia baja</h2>
+                    <p id="recomendacion-texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus ipsa consectetur odio id dolores error quam nisi nobis, nemo rerum nesciunt fugit officia consequatur laboriosam, minima earum tenetur, fuga laudantium.</p>
+                    <button id="reset" type="button" class="btn" onclick="handleReset()">Intentar de nuevo</button>
+                </div>
                 </div>
             </div>
         </div>

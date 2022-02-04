@@ -1,29 +1,36 @@
 class Formulario{
-    constructor(flipCardInner, secondSection1, secondSection2, resetButton, medidor){
+    constructor(flipCardInner, secondSection1, secondSection2, secondSection3, resetButton, medidor){
         this.flipCardInner = flipCardInner;
         this.secondSection1 = secondSection1;
         this.secondSection2 = secondSection2;
+        this.secondSection3 = secondSection3;
         this.resetButton = resetButton;
         this.medidor = medidor;
     }
-    submit(paciente){
-        this.medidor.ajustarMedidor(0);
-        this.flipCardInner.classList.add('flipped');
+    next(){
         this.secondSection1.classList.add('hidden');
         this.secondSection2.classList.remove('hidden');
-        setTimeout(() => {
-            this.medidor.ajustarMedidor(paciente.puntos);
-        }, 500);
-        document.getElementById('result-description').innerHTML = `Dependencia ${paciente.dependencia}`;
-        document.getElementById('recomendacion-titulo').innerHTML = `Recomendaciones para personas con dependencia ${paciente.dependencia}:`;
-        document.getElementById('recomendacion-texto').innerHTML = paciente.recomendaciones;
-        window.scrollTo(0, 0);
+    }
+    submit(paciente){
+            this.medidor.ajustarMedidor(0);
+            this.flipCardInner.classList.add('flipped');
+            this.secondSection2.classList.add('hidden');
+            this.secondSection3.classList.remove('hidden');
+            setTimeout(() => {
+                this.medidor.ajustarMedidor(paciente.puntos);
+            }, 500);
+            document.getElementById('result-description').innerHTML = `Dependencia ${paciente.dependencia}`;
+            document.getElementById('recomendacion-titulo').innerHTML = `Recomendaciones para personas con dependencia ${paciente.dependencia}:`;
+            document.getElementById('recomendacion-texto').innerHTML = paciente.recomendaciones;
+            window.scrollTo(0, 0);
     }
     reset(){
         this.flipCardInner.classList.remove('flipped');
         this.secondSection1.classList.remove('hidden');
         this.secondSection2.classList.add('hidden');
+        this.secondSection3.classList.add('hidden');
         this.medidor.ajustarMedidor(0);
+        this.secondSection2.querySelector('form').reset();
         window.scrollTo(0, 0);
     }
 }
@@ -64,6 +71,31 @@ class Paciente{
 
 function handleSubmit() {
 
+     const flipCardInner = document.getElementById('flip-card-inner');
+     const secondSection1 = document.getElementById('second-section-1');
+     const secondSection2 = document.getElementById('second-section-2');
+     const secondSection3 = document.getElementById('second-section-3');
+     const resetButton = document.getElementById('reset');
+     const medidor = document.getElementById('gauge');
+     const formulario = new Formulario(flipCardInner, secondSection1, secondSection2, secondSection3, resetButton, new Medidor(medidor));
+     let edad = secondSection2.querySelector('#edad');
+     let edadFumador = secondSection2.querySelector('#edad-fumador');
+     let genero = secondSection2.querySelector('#genero');
+     let cigarrillosDia = secondSection2.querySelector('#cigarrillos-dia');
+
+
+     edadFumador.classList.remove('error');
+     edad.classList.remove('error');
+
+    
+    if(!edadFumador.value){
+        edadFumador.classList.add('error');
+    }
+    if(!edad.value){
+        edad.classList.add('error');
+    }
+    else if(edad && edadFumador){
+
     const respuestas = [
         parseInt(document.getElementById('pregunta1').value),
         parseInt(document.querySelector('input[name="pregunta2"]:checked').value),
@@ -75,14 +107,12 @@ function handleSubmit() {
 
      let paciente = new Paciente();
      paciente.respuestas = respuestas;
+     paciente.edad = edad.value;
+     paciente.edadFumador = edadFumador.value;
+     paciente.genero = genero.value;
+     paciente.cigarrillosDia = cigarrillosDia.value;
 
-     const flipCardInner = document.getElementById('flip-card-inner');
-     const secondSection1 = document.getElementById('second-section-1');
-     const secondSection2 = document.getElementById('second-section-2');
-     const resetButton = document.getElementById('reset');
-     const medidor = document.getElementById('gauge');
-
-     const formulario = new Formulario(flipCardInner, secondSection1, secondSection2, resetButton, new Medidor(medidor));
+     
 
 
      fetch("http://localhost:3000/paciente", {
@@ -92,8 +122,10 @@ function handleSubmit() {
             "Content-Type": "application/json"
         }}).then(response => response.json())
         .then(paciente => {
+            console.log(paciente);
             formulario.submit(paciente);
         });
+    }
 }
 
 function handleReset() {
@@ -101,9 +133,22 @@ function handleReset() {
     const flipCardInner = document.getElementById('flip-card-inner');
     const secondSection1 = document.getElementById('second-section-1');
     const secondSection2 = document.getElementById('second-section-2');
+    const secondSection3 = document.getElementById('second-section-3');
     const resetButton = document.getElementById('reset');
     const medidor = document.getElementById('gauge');
 
-    const formulario = new Formulario(flipCardInner, secondSection1, secondSection2, resetButton, new Medidor(medidor));
+    const formulario = new Formulario(flipCardInner, secondSection1, secondSection2, secondSection3,resetButton, new Medidor(medidor));
     formulario.reset();
+}
+
+function handleSiguiente(){
+    const flipCardInner = document.getElementById('flip-card-inner');
+    const secondSection1 = document.getElementById('second-section-1');
+    const secondSection2 = document.getElementById('second-section-2');
+    const secondSection3 = document.getElementById('second-section-3');
+    const resetButton = document.getElementById('reset');
+    const medidor = document.getElementById('gauge');
+
+    const formulario = new Formulario(flipCardInner, secondSection1, secondSection2, secondSection3,resetButton, new Medidor(medidor));
+    formulario.next();
 }
