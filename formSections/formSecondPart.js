@@ -5,6 +5,7 @@ export default class formFirstSection{
         this.form = form;
         this.paciente = paciente;
         this.form.addEventListener('submit', this.submit.bind(this));
+        document.getElementById('skip').addEventListener('click', this.skip.bind(this));
     }
     submit(event){
         event.preventDefault();
@@ -36,5 +37,17 @@ export default class formFirstSection{
     }
     reset(){
         this.form.reset();
+    }
+    skip(){
+        // se ocultan las secciones del formulario y se muestra la seccion de resultados
+        document.getElementById('second-section-2').classList.add('hidden');
+        document.getElementById('second-section-3').classList.remove('hidden');
+
+        // se sube la pantalla hasta el resultado para movil
+        window.scrollTo(0, 0);
+
+        // se crea el objeto resultado
+        const resultsection = new resultSection(document.getElementById('second-section-3'),this.paciente);
+        resultsection.resultSkip();
     }
 }

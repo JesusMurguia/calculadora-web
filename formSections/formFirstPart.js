@@ -30,4 +30,5 @@ export default class formFirstSection{
         document.getElementById('second-section-2').classList.remove('hidden');
         const form2 = new formSecondPart(document.getElementById('formSecondPart'),paciente);
     }
+    
 }
