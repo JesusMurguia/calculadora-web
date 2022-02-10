@@ -21,7 +21,9 @@ body{
     background: url(../images/Shiny-Overlay.png);
     background-size: cover;
 }
-
+.g-signin2{
+    display: none!important;
+}
 main{
     max-width: 65em;
     height: 45em;

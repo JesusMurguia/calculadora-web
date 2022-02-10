@@ -1,5 +1,6 @@
 export default class Paciente{
-    constructor(edad, genero, cigarrillosDia, puntos, dependencia, recomendaciones, respuestas){
+    constructor(id,edad, genero, cigarrillosDia, puntos, dependencia, recomendaciones, respuestas){
+        this.id = id;
         this.edad = edad;
         this.genero = genero;
         this.cigarrillosDia = cigarrillosDia;

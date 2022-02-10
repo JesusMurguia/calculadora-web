@@ -1,11 +1,16 @@
 import resultSection from "./resultSection.js";
+import googleAuth from "./googleAuth.js";
 
-export default class formFirstSection{
+export default class formSecondSection{
     constructor(form, paciente){
         this.form = form;
         this.paciente = paciente;
+        this.auth = new googleAuth(this,this.paciente);
         this.form.addEventListener('submit', this.submit.bind(this));
         document.getElementById('skip').addEventListener('click', this.skip.bind(this));
+    }
+    googleAuth(){
+        this.auth.appStart();
     }
     submit(event){
         event.preventDefault();
@@ -20,8 +25,8 @@ export default class formFirstSection{
         //se limpia el formulario
         this.reset();
 
-        //se inicia la tercera parte del formulario
-        this.next(this.paciente);
+        this.googleAuth();
+
     }
     next(paciente){
         // se ocultan las secciones del formulario y se muestra la seccion de resultados
@@ -33,7 +38,7 @@ export default class formFirstSection{
 
         // se crea el objeto resultado
         const resultsection = new resultSection(document.getElementById('second-section-3'),paciente);
-        resultsection.result();
+        resultsection.result(paciente);
     }
     reset(){
         this.form.reset();
