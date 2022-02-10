@@ -22,9 +22,6 @@ export default class formSecondSection{
         this.paciente.genero = formData.get('genero');
         this.paciente.cigarrillosDia = formData.get('cigarrillos-dia');
 
-        //se limpia el formulario
-        this.reset();
-
         this.googleAuth();
 
     }
