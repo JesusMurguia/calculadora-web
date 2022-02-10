@@ -25,7 +25,7 @@ module.exports = {
 
     // se verifica el token del paciente
     const {OAuth2Client} = require('google-auth-library');
-    const CLIENT_ID = '30485697553-fi0lissi50apd8r26rl8rhg7hmkvafqo.apps.googleusercontent.com';
+    const CLIENT_ID = '30485697553-eob4q0k7hv5p3k48jqls98kv5n3pglk6.apps.googleusercontent.com';
     const client = new OAuth2Client(CLIENT_ID);
     const token = newPaciente.id;
     async function verify() {
