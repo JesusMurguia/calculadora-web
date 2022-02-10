@@ -10,7 +10,7 @@ export default class googleAuth{
     }
     initSigninV2(){
         this.auth2 = gapi.auth2.getAuthInstance({
-            client_id: '30485697553-fi0lissi50apd8r26rl8rhg7hmkvafqo.apps.googleusercontent.com',
+            client_id: '30485697553-eob4q0k7hv5p3k48jqls98kv5n3pglk6.apps.googleusercontent.com',
             scope: 'profile'
         });
         this.auth2.currentUser.listen(this.userChanged.bind(this));
