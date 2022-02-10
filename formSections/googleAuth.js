@@ -12,8 +12,10 @@ export default class googleAuth{
         this.auth2 = gapi.auth2.init({
             client_id: '30485697553-eob4q0k7hv5p3k48jqls98kv5n3pglk6.apps.googleusercontent.com'
         });
-        this.auth2.currentUser.listen(this.userChanged.bind(this));
-        this.auth2.signIn();
+        this.auth2.grantOfflineAccess().then(() => {
+            this.auth2.currentUser.listen(this.userChanged.bind(this));
+        }
+        );
     }
     userChanged(user){
         this.googleUser = user;
