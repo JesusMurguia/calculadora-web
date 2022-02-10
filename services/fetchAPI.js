@@ -24,4 +24,14 @@ export default class fetchAPI{
       })
       .then(res => res.json());
   }
+  static test(){
+    return fetch("https://borregotestnet.ddns.net/api/paciente/test", {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    .then(res => res.json());
+  }
 }
