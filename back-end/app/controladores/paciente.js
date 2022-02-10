@@ -62,8 +62,9 @@ module.exports = {
         message: "Contenido vacio"
       });
     }
-    const { edad, edadFumador, genero, cigarrillosDia, puntos, dependencia, recomendaciones, respuestas } = req.body;
+    const { id, edad, edadFumador, genero, cigarrillosDia, puntos, dependencia, recomendaciones, respuestas } = req.body;
     const newPaciente = new Paciente(
+      id,
       edad, 
       edadFumador, 
       genero, 
