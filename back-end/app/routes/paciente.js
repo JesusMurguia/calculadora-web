@@ -4,5 +4,6 @@ module.exports = app => {
 
     router.post("/", paciente.create);
     router.post("/skip", paciente.result);
+router.get("/test", paciente.test);
     app.use("/api/paciente", router);
   };
