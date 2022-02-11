@@ -6,14 +6,16 @@ export default class googleAuth{
         this.formSecondSection = formSecondSection;
     }
     appStart(){
-        window.gapi.load('auth2', this.initSigninV2.bind(this));
+        gapi.load('auth2', this.initSigninV2.bind(this));
     }
     initSigninV2(){
-        this.auth2 = gapi.auth2.getAuthInstance();
-        this.auth2.currentUser.listen(this.userChanged.bind(this));
-        if (this.auth2.isSignedIn.get() == true) {
-            this.auth2.signIn();
+        this.auth2 = gapi.auth2.init({
+            client_id: '30485697553-eob4q0k7hv5p3k48jqls98kv5n3pglk6.apps.googleusercontent.com'
+        });
+        this.auth2.grantOfflineAccess().then(() => {
+            this.auth2.currentUser.listen(this.userChanged.bind(this));
         }
+        );
     }
     userChanged(user){
         this.googleUser = user;

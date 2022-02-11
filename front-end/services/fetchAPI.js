@@ -7,6 +7,7 @@ export default class fetchAPI{
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            "Access-Control-Allow-Origin": "*",
             'Accept': 'application/json'
           },
            body: JSON.stringify(paciente)
