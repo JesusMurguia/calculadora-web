@@ -1,5 +1,3 @@
-
-
 const Paciente = require('../modelos/Paciente.js');
 const sql = require("../modelos/db");
 
@@ -24,10 +22,10 @@ module.exports = {
       respuestas
     );
     newPaciente.diagnostico();
-	
+	console.log(newPaciente);
     // se verifica el token del paciente
     const {OAuth2Client} = require('google-auth-library');
-    const CLIENT_ID = '30485697553-eob4q0k7hv5p3k48jqls98kv5n3pglk6.apps.googleusercontent.com';
+    const CLIENT_ID = '';
     const client = new OAuth2Client(CLIENT_ID);
     const token = newPaciente.id;
     async function verify() {
@@ -48,11 +46,9 @@ module.exports = {
         puntos: newPaciente.puntos,
         dependencia: newPaciente.dependencia,
         recomendaciones: newPaciente.recomendaciones,
-      }).then(data => {
-console.log(data)    
+      }).then(data => {    
         res.status(200).send(newPaciente);
       }).catch(error => {
-	console.log(error)
         res.status(200).send(newPaciente);
       });
     }
@@ -66,9 +62,8 @@ console.log(data)
         message: "Contenido vacio"
       });
     }
-    const { id, edad, edadFumador, genero, cigarrillosDia, puntos, dependencia, recomendaciones, respuestas } = req.body;
+    const { edad, edadFumador, genero, cigarrillosDia, puntos, dependencia, recomendaciones, respuestas } = req.body;
     const newPaciente = new Paciente(
-      id,
       edad, 
       edadFumador, 
       genero, 
@@ -78,9 +73,8 @@ console.log(data)
       recomendaciones,
       respuestas
     );
-console.log(newPaciente);
     newPaciente.diagnostico();
-  
+    
     res.status(200).send(newPaciente);
   },
 test: async (req, res) => {
