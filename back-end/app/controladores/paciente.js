@@ -49,10 +49,8 @@ module.exports = {
         dependencia: newPaciente.dependencia,
         recomendaciones: newPaciente.recomendaciones,
       }).then(data => {
-console.log(data)    
         res.status(200).send(newPaciente);
       }).catch(error => {
-	console.log(error)
         res.status(200).send(newPaciente);
       });
     }
@@ -78,7 +76,6 @@ console.log(data)
       recomendaciones,
       respuestas
     );
-console.log(newPaciente);
     newPaciente.diagnostico();
   
     res.status(200).send(newPaciente);
