@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `calculadora` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE  IF NOT EXISTS `calculadora` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `calculadora`;
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
@@ -35,7 +35,7 @@ CREATE TABLE `paciente` (
   `recomendaciones` varchar(256) NOT NULL,
   PRIMARY KEY (`idpaciente`,`edadFumador`,`edad`,`genero`,`cigarrillosDia`,`puntos`,`dependencia`,`recomendaciones`),
   UNIQUE KEY `idpaciente_UNIQUE` (`idpaciente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
