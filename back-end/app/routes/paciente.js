@@ -1,5 +1,5 @@
 module.exports = app => {
-    const paciente = require("../controladores/paciente");
+    const paciente = require("../controladores/pacienteBasico");
     let router = require("express").Router();
 
     router.post("/", paciente.create);

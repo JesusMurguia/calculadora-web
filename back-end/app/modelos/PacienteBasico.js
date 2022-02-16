@@ -1,4 +1,4 @@
-class Paciente{
+class PacienteBasico{
     constructor(id, edad, edadFumador, genero, cigarrillosDia, puntos, dependencia, recomendaciones, respuestas){
         this.id = id;
         this.edad = edad;
@@ -25,4 +25,4 @@ class Paciente{
     }
 }
 
-module.exports = Paciente;
+module.exports = PacienteBasico;

@@ -1,6 +1,6 @@
 
 
-const Paciente = require('../modelos/Paciente.js');
+const Paciente = require('../modelos/PacienteBasico.js');
 const sql = require("../modelos/db");
 
 module.exports = {
@@ -44,11 +44,16 @@ module.exports = {
         edad: newPaciente.edad,
         edadFumador: newPaciente.edadFumador,
         genero: newPaciente.genero,
-        cigarrillosDia: newPaciente.cigarrillosDia,
-        puntos: newPaciente.puntos,
-        dependencia: newPaciente.dependencia,
-        recomendaciones: newPaciente.recomendaciones,
+        cigarrillosDia: newPaciente.cigarrillosDia
       }).then(data => {
+        
+        console.log(data);
+
+
+
+
+
+
         res.status(200).send(newPaciente);
       }).catch(error => {
         res.status(200).send(newPaciente);
