@@ -46,16 +46,21 @@ module.exports = {
         genero: newPaciente.genero,
         cigarrillosDia: newPaciente.cigarrillosDia
       }).then(data => {
-        
-        console.log(data);
-
-
-
-
-
-
-        res.status(200).send(newPaciente);
+        sql.promise().query("INSERT INTO paciente_basico SET ?", {
+          idpaciente: userid,
+          puntos: newPaciente.puntos,
+          dependencia: newPaciente.dependencia,
+          recomendaciones: newPaciente.recomendaciones
+        }).then(data => {
+          res.status(200).send(newPaciente);
+        }).catch(err => {
+          res.status(500).send({
+            message: err.message || "Error al crear el paciente basico"
+          });
+        });
       }).catch(error => {
+        console.log(error);
+        //el paciente ya existe asi que se regresa el diagnostico sin insertarlo
         res.status(200).send(newPaciente);
       });
     }
