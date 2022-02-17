@@ -14,6 +14,7 @@ app.get("/", (req, res) => {
   res.json({ message: "ok." });
 });
 require("./app/routes/paciente")(app);
+require("./app/routes/pacienteAvanzado")(app);
 
 
 

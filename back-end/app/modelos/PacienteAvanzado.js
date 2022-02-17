@@ -1,4 +1,4 @@
-class PacienteBasico {
+class PacienteAvanzado {
   constructor(
     id,
     edad,
@@ -6,7 +6,9 @@ class PacienteBasico {
     genero,
     cigarrillosDia,
     metabolitos,
-    variacionGenetica
+    variacionGenetica,
+    resultadoMetabolitos,
+    resultadoVariacionGenetica
   ) {
     this.id = id;
     this.edad = edad;
@@ -14,8 +16,11 @@ class PacienteBasico {
     this.genero = genero;
     this.cigarrillosDia = cigarrillosDia;
     this.metabolitos = metabolitos;
+    this.resultadoMetabolitos = resultadoMetabolitos;
     this.variacionGenetica = variacionGenetica;
+    this.resultadoVariacionGenetica = resultadoVariacionGenetica;
   }
+  
 }
 
-module.exports = Paciente;
+module.exports = PacienteAvanzado;
