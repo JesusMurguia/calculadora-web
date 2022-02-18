@@ -7,6 +7,7 @@ export default class formFirstSection{
         this.form.addEventListener('submit', this.submit.bind(this));
     }
     submit(event){
+        console.log("cocaina")
         event.preventDefault();
 
 
@@ -16,6 +17,7 @@ export default class formFirstSection{
         for (const [key, value] of formData.entries()){
             respuestas.push(Number(value));
         }
+        console.log(respuestas)
 
         //crear objeto paciente
         let paciente = new Paciente();
