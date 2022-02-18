@@ -293,7 +293,13 @@ nav{
     animation-fill-mode: forwards;
 }
 
+table{
+    color: white!important;
+}
 
+.text-align-left{
+    text-align: left!important;
+}
 .expandRight{
     -webkit-animation-name: expandRight;
     animation-name: expandRight;

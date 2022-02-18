@@ -15,19 +15,28 @@ export default class resultSection{
         // se obtiene el diagnostico del paciente y se muestra en el resultado
         fetchAPI.postPaciente(user).then(paciente => {
             console.log(paciente);
-            document.getElementById('result-description').innerHTML = `Dependencia ${paciente.dependencia}`;
-            document.getElementById('recomendacion-titulo').innerHTML = `Recomendaciones para personas con dependencia ${paciente.dependencia}:`;
-            document.getElementById('recomendacion-texto').innerHTML = paciente.recomendaciones;
+            this.paciente = paciente;
+            this.paciente.nombresMetabolitos = ["3HC-O-Gluc","Cotinine-N-Gluc","3HC","Cotinine","Nicotine","Nicotine-N-Gluc","4HPBA","Cotinine-oxide","Nicotine-N-oxide"];
 
-            // se crea el medidor y se ajusta de acuerdo a la dependencia
-            const medidor = new Medidor(document.getElementById('gauge'));
-            medidor.ajustarMedidor(0);
+
             // delay de medio segundo para que se vea la animacion perrona
             setTimeout(() => {
-                medidor.ajustarMedidor(paciente.puntos);
                 document.getElementById('last-section').classList.add('hidden');
                 document.getElementById('first-section').classList.add('expand');
+
+
+                //se popula la tabla de resultados
+                let table=document.getElementById('table-body');
+                for(let i=0;i<this.paciente.metabolitos.length;i++){
+                    table.innerHTML+=`<tr>
+                    <td class="text-align-left">${this.paciente.nombresMetabolitos[i]}</td>
+                    <td>${this.paciente.resultadoMetabolitos[i]}</td>
+                    <td>${this.paciente.metabolitos[i]}</td>
+                    </tr>
+                    `;
+                }
             }, 600);
+            
 
             // se muestra el resultado
             document.getElementById('flip-card-inner').classList.add('flipped');
