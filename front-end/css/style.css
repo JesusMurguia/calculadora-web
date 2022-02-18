@@ -253,7 +253,7 @@ main{
   }
   #second-section-3{
     padding: 2em;
-    animation: flipInY .75s;
+    animation: flipInY .5s;
   }
 
   #second-section-2{
@@ -278,10 +278,15 @@ main{
 @media screen and (max-width: 768px){
     .container-fluid{
         width: 90%;
-        height: 100%;
+        height: auto;
         margin:1em;
     }
-    
+    nav .btn{
+        height: 100%;
+    }
+    .expand{
+        height: 40em;
+    }
 }
 
 nav{
@@ -295,6 +300,9 @@ nav{
 
 table{
     color: white!important;
+}
+td{
+    font-weight: bolder;
 }
 
 .text-align-left{

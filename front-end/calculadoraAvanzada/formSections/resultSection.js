@@ -21,9 +21,9 @@ export default class resultSection{
 
             // delay de medio segundo para que se vea la animacion perrona
             setTimeout(() => {
-                document.getElementById('last-section').classList.add('hidden');
+                
                 document.getElementById('first-section').classList.add('expand');
-
+                document.getElementById('last-section').classList.add('hidden');
 
                 //se popula la tabla de resultados
                 let table=document.getElementById('table-body');
@@ -35,7 +35,7 @@ export default class resultSection{
                     </tr>
                     `;
                 }
-            }, 600);
+            }, 500);
             
 
             // se muestra el resultado
@@ -66,5 +66,17 @@ export default class resultSection{
     }
     reset(){
         window.location.reload();
+    }
+    riskColor(risk){
+        switch(risk){
+            case "Bajo":
+                return "#5f9600";
+            case "Medio":
+                return "#f4db0a";
+            case "Alto":
+                return "#b20811";
+            default:
+                return "white";
+        }
     }
 }

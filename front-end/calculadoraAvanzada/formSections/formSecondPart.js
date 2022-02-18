@@ -28,7 +28,6 @@ export default class formSecondSection{
     next(paciente){
         // se ocultan las secciones del formulario y se muestra la seccion de resultados
         document.getElementById('second-section-2').classList.add('hidden');
-        document.getElementById('second-section-3').classList.remove('hidden');
 
         // se sube la pantalla hasta el resultado para movil
         window.scrollTo(0, 0);

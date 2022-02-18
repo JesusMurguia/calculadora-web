@@ -33,17 +33,23 @@
                       <div class="flip-card-back">
                         <div id="result-div" class="category-description-section">
                             <h2>Resultado</h2>
-                            <table class="table">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Metabolito</th>
-                                    <th scope="col">Riesgo</th>
-                                    <th scope="col">Valor</th>
-                                  </tr>
-                                </thead>
-                                <tbody id="table-body">
-                                </tbody>
-                              </table>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th scope="col">Metabolito</th>
+                                                <th scope="col">Riesgo</th>
+                                                <th scope="col">Valor</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody id="table-body">
+                                            </tbody>
+                                          </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                       </div>
                     </div>
@@ -170,7 +176,7 @@
                                             <option value="Más de 20">Más de 20</option>
                                           </select>
                                     <button id="submit" type="submit" class="btn mt-4 w-100">Enviar</button>
-                                    <a id="skip" type="button" class="btn-skip mt-4 w-100">Omitir</a>
+                                    <a id="skip" type="button" class="btn-skip mt-4 w-100 hidden">Omitir</a>
                                 </div>
                             </div>
                             </form>
