@@ -51,13 +51,13 @@ const validaciones = [
   },
   (valor) => {
       //Nicotine
-    if(valor < 0.8) {
+    if(valor < 0.52) {
       return "Bajo";
     }
-    if(valor >= 0.8 && valor <= .52) {
+    if(valor >= 0.52 && valor <= .8) {
       return "Medio";
     } 
-    if(valor > .52) {
+    if(valor > .8) {
       return "Alto";
     }
   },
