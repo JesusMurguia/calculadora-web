@@ -284,6 +284,9 @@ main{
     
 }
 
+nav{
+    max-width: 65em!important;
+}
 
 
 .fadeIn {
