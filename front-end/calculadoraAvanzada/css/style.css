@@ -192,6 +192,11 @@ main{
     padding: 1em;
 }
 
+.mb-3 label, .mb-3 input {
+    float: none; /* if you had floats before? otherwise inline-block will behave differently */
+    display: inline-block;
+    vertical-align: middle;    
+}
 
 
 /* meter */
