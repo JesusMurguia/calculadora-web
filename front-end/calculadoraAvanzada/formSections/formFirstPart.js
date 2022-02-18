@@ -7,21 +7,18 @@ export default class formFirstSection{
         this.form.addEventListener('submit', this.submit.bind(this));
     }
     submit(event){
-        console.log("cocaina")
         event.preventDefault();
 
 
         //guardar valores del formulario 
         const formData = new FormData(this.form);
-        let respuestas = [];
+        let metabolitos = [];
         for (const [key, value] of formData.entries()){
-            respuestas.push(Number(value));
+            metabolitos.push(Number(value));
         }
-        console.log(respuestas)
-
         //crear objeto paciente
         let paciente = new Paciente();
-        paciente.respuestas = respuestas;
+        paciente.metabolitos = metabolitos;
 
         //se inicia la segunda parte del formulario
         this.next(paciente);
