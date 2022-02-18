@@ -3,7 +3,7 @@ export default class fetchAPI{
     }
 
     static postPaciente(paciente){
-        return fetch("https://borregotestnet.ddns.net/api/paciente", {
+        return fetch("https://borregotestnet.ddns.net/api/pacienteAvanzado", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -15,7 +15,7 @@ export default class fetchAPI{
         .then(res => res.json());
     }
     static postPacienteSkip(paciente){
-      return fetch("https://borregotestnet.ddns.net/api/paciente/skip", {
+      return fetch("https://borregotestnet.ddns.net/api/pacienteAvanzado/skip", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -24,15 +24,5 @@ export default class fetchAPI{
          body: JSON.stringify(paciente)
       })
       .then(res => res.json());
-  }
-  static test(){
-    return fetch("https://borregotestnet.ddns.net/api/paciente/test", {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    })
-    .then(res => res.json());
   }
 }
