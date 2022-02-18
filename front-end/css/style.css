@@ -288,6 +288,26 @@ nav{
     max-width: 65em!important;
 }
 
+.expand{
+    animation: expandRight .5s;
+    animation-fill-mode: forwards;
+}
+
+
+.expandRight{
+    -webkit-animation-name: expandRight;
+    animation-name: expandRight;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    }
+    @-webkit-keyframes expandRight {
+    0% {width: 35%;}
+    100% {width: 100%;}
+    }
+    @keyframes expandRight {
+    0% {width: 35%;}
+    100% {width: 100%;}
+} 
 
 .fadeIn {
     -webkit-animation-name: fadeIn;

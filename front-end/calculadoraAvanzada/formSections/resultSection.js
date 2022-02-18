@@ -14,6 +14,7 @@ export default class resultSection{
     result(user){
         // se obtiene el diagnostico del paciente y se muestra en el resultado
         fetchAPI.postPaciente(user).then(paciente => {
+            console.log(paciente);
             document.getElementById('result-description').innerHTML = `Dependencia ${paciente.dependencia}`;
             document.getElementById('recomendacion-titulo').innerHTML = `Recomendaciones para personas con dependencia ${paciente.dependencia}:`;
             document.getElementById('recomendacion-texto').innerHTML = paciente.recomendaciones;
@@ -24,10 +25,14 @@ export default class resultSection{
             // delay de medio segundo para que se vea la animacion perrona
             setTimeout(() => {
                 medidor.ajustarMedidor(paciente.puntos);
-            }, 500);
+                document.getElementById('last-section').classList.add('hidden');
+                document.getElementById('first-section').classList.add('expand');
+            }, 600);
 
             // se muestra el resultado
             document.getElementById('flip-card-inner').classList.add('flipped');
+            
+            
         });
 
     }
