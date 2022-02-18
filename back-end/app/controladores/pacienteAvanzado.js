@@ -45,43 +45,67 @@ module.exports = {
       });
       const payload = ticket.getPayload();
       const userid = payload["sub"];
-
-      // se inserta al paciente en la base de datos, si el paciente ya tiene un registro en la base de dato no se inserta y solamente regresa el diagnostico
+      // se inserta al paciente en la base de datos, si el paciente ya tiene un registro en la base de datos se actualiza
       sql
         .promise()
-        .query("INSERT INTO paciente SET ?", {
-          idpaciente: userid,
-          edad: newPaciente.edad,
-          edadFumador: newPaciente.edadFumador,
-          genero: newPaciente.genero,
-          cigarrillosDia: newPaciente.cigarrillosDia,
-        })
+        .query("INSERT INTO paciente SET ? ON DUPLICATE KEY UPDATE `edad` = ?, `edadFumador` = ?, `genero` = ?, `cigarrillosDia` = ?", [
+          {
+            idpaciente: userid,
+            edad: newPaciente.edad,
+            edadFumador: newPaciente.edadFumador,
+            genero: newPaciente.genero,
+            cigarrillosDia: newPaciente.cigarrillosDia,
+          },
+          newPaciente.edad,
+          newPaciente.edadFumador,
+          newPaciente.genero,
+          newPaciente.cigarrillosDia,
+        ])
         .then((data) => {
-          sql
+          sql.promise().query("INSERT INTO paciente_avanzado SET ? ON DUPLICATE KEY UPDATE `idpaciente` = `idpaciente` ", [
+            {
+              idpaciente: userid,
+            },
+          ]).then((data) => {
+            sql
             .promise()
             .query(
-              "INSERT INTO metabolitos (`idpaciente`, `3HC-0-Gluc`, `Cotinine-N-Gluc`, `3HC`, `Cotinine`, `Nicotine`, `Nicotine-N-Gluc`, `4HPBA`, `Cotinine-oxide`, `Nicotine-N-oxide`) VALUES (?,?,?,?,?,?,?,?,?,?)",
+              "INSERT INTO metabolitos (`idpaciente`, `3HC-0-Gluc`, `Cotinine-N-Gluc`, `3HC`, `Cotinine`, `Nicotine`, `Nicotine-N-Gluc`, `4HPBA`, `Cotinine-oxide`, `Nicotine-N-oxide`) VALUES (?,?,?,?,?,?,?,?,?,?) on duplicate key update `3HC-0-Gluc` = ?, `Cotinine-N-Gluc` = ?, `3HC` = ?, `Cotinine` = ?, `Nicotine` = ?, `Nicotine-N-Gluc` = ?, `4HPBA` = ?, `Cotinine-oxide` = ?, `Nicotine-N-oxide` = ?",
               [
                 userid,
-                newPaciente.resultadoMetabolitos[0],
-                newPaciente.resultadoMetabolitos[1],
-                newPaciente.resultadoMetabolitos[2],
-                newPaciente.resultadoMetabolitos[3],
-                newPaciente.resultadoMetabolitos[4],
-                newPaciente.resultadoMetabolitos[5],
-                newPaciente.resultadoMetabolitos[6],
-                newPaciente.resultadoMetabolitos[7],
-                newPaciente.resultadoMetabolitos[8],
+                newPaciente.metabolitos[0],
+                newPaciente.metabolitos[1],
+                newPaciente.metabolitos[2],
+                newPaciente.metabolitos[3],
+                newPaciente.metabolitos[4],
+                newPaciente.metabolitos[5],
+                newPaciente.metabolitos[6],
+                newPaciente.metabolitos[7],
+                newPaciente.metabolitos[8],
+                newPaciente.metabolitos[0],
+                newPaciente.metabolitos[1],
+                newPaciente.metabolitos[2],
+                newPaciente.metabolitos[3],
+                newPaciente.metabolitos[4],
+                newPaciente.metabolitos[5],
+                newPaciente.metabolitos[6],
+                newPaciente.metabolitos[7],
+                newPaciente.metabolitos[8],
               ]
             )
             .then((data) => {
+              console.log("ass",data);
               res.status(200).send(newPaciente);
             })
             .catch((err) => {
+              console.log(err);
               res.status(500).send({
                 message: err.message || "Error al crear el paciente avanzado",
               });
             });
+          }).catch((err) => {
+            console.log(err);
+          });
         })
         .catch((error) => {
           console.log(error);

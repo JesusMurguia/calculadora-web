@@ -3,5 +3,6 @@ module.exports = app => {
     let router = require("express").Router();
 
     router.post("/", paciente.create);
+    router.get("/test", paciente.test);
     app.use("/api/pacienteAvanzado", router);
   };

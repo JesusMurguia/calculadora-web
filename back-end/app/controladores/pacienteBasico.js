@@ -38,20 +38,30 @@ module.exports = {
       const payload = ticket.getPayload();
       const userid = payload['sub'];
 
-      // se inserta al paciente en la base de datos, si el paciente ya tiene un registro en la base de dato no se inserta y solamente regresa el diagnostico
-      sql.promise().query("INSERT INTO paciente SET ?", {
+      // se inserta al paciente en la base de datos, si el paciente ya tiene un registro en la base de dato se actualiza
+      sql.promise().query("INSERT INTO paciente SET ? ON DUPLICATE KEY UPDATE `edad` = ?, `edadFumador` = ?, `genero` = ?, `cigarrillosDia` = ?", [{
         idpaciente: userid,
         edad: newPaciente.edad,
         edadFumador: newPaciente.edadFumador,
         genero: newPaciente.genero,
         cigarrillosDia: newPaciente.cigarrillosDia
-      }).then(data => {
-        sql.promise().query("INSERT INTO paciente_basico SET ?", {
-          idpaciente: userid,
-          puntos: newPaciente.puntos,
-          dependencia: newPaciente.dependencia,
-          recomendaciones: newPaciente.recomendaciones
-        }).then(data => {
+      },
+      newPaciente.edad,
+      newPaciente.edadFumador,
+      newPaciente.genero,
+      newPaciente.cigarrillosDia
+    ]).then(data => {
+        sql.promise().query("INSERT INTO paciente_basico SET ? ON DUPLICATE KEY UPDATE `puntos`= ?, `dependencia`= ?,`recomendaciones`=?", [
+          {
+            idpaciente: userid,
+            puntos: newPaciente.puntos,
+            dependencia: newPaciente.dependencia,
+            recomendaciones: newPaciente.recomendaciones
+          },
+          newPaciente.puntos,
+          newPaciente.dependencia,
+          newPaciente.recomendaciones
+        ]).then(data => {
           res.status(200).send(newPaciente);
         }).catch(err => {
           res.status(500).send({
