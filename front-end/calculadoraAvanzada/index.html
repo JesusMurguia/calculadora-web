@@ -66,7 +66,7 @@
                                     <label for="33HC-O-GlucHC" class="form-label">3HC-O-Gluc:</label>
                                 </div>
                                 <div class="col-6">
-                                <input type="number" step="0.01" name="3HC-O-Gluc" class="form-control" id="3HC-O-Gluc" placeholder="0.8" min="0" max="99" required>
+                                <input type="number" step="0.01" name="3HC-O-Gluc" class="form-control" id="3HC-O-Gluc" placeholder="0.8" min="0" max="99" >
                                 </div>
                             </div>
                             <!-- pregunta 2 -->
@@ -75,7 +75,7 @@
                                     <label for="Cotinine-N-Gluc" class="form-label">Cotinine-N-Gluc</label>
                                 </div>
                                 <div class="col-6">
-                                <input type="number"  step="0.01" name="Cotinine-N-Gluc" class="form-control" id="Cotinine-N-Gluc" placeholder="0.8" min="0" max="99" required>
+                                <input type="number"  step="0.01" name="Cotinine-N-Gluc" class="form-control" id="Cotinine-N-Gluc" placeholder="0.8" min="0" max="99" >
                                 </div>
                             </div>
                             <!-- pregunta 3 -->
@@ -84,7 +84,7 @@
                                     <label for="3HC" class="form-label">3HC:</label>
                                 </div>
                                 <div class="col-6">
-                                <input type="number" step="0.01" name="3HC" class="form-control" id="3HC" placeholder="0.8" min="0" max="99" required>
+                                <input type="number" step="0.01" name="3HC" class="form-control" id="3HC" placeholder="0.8" min="0" max="99" >
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -92,13 +92,13 @@
                                     <label for="Cotinine" class="form-label">Cotinine:</label>
                                 </div>
                                 <div class="col-6">
-                                <input type="number" step="0.01" name="Cotinine" class="form-control" id="Cotinine" placeholder="0.8" min="0" max="99" required>
+                                <input type="number" step="0.01" name="Cotinine" class="form-control" id="Cotinine" placeholder="0.8" min="0" max="99" >
                                 </div>
                             </div>
                             <!-- pregunta 4 -->
                             <div class="row mb-3">
                                 <div class="col-6 d-flex align-items-end">
-                                    <label for="Nicotine" class="form-label">Nicotine:</label>
+                                    <label for="Nicotine" class="form-label required">Nicotine:</label>
                                 </div>
                                 <div class="col-6">
                                 <input type="number" step="0.01" name="Nicotine" class="form-control" id="Nicotine" placeholder="0.8" min="0" max="99" required>
@@ -110,7 +110,7 @@
                                     <label for="Nicotine-N-Gluc" class="form-label">Nicotine-N-Gluc:</label>
                                 </div>
                                 <div class="col-6">
-                                <input type="number" step="0.01" name="Nicotine-N-Gluc" class="form-control" id="Nicotine-N-Gluc" placeholder="0.8" min="0" max="99" required>
+                                <input type="number" step="0.01" name="Nicotine-N-Gluc" class="form-control" id="Nicotine-N-Gluc" placeholder="0.8" min="0" max="99" >
                                 </div>
                             </div>
                             <!-- pregunta 6 -->
@@ -119,7 +119,7 @@
                                     <label for="4HPBA" class="form-label">4HPBA:</label>
                                 </div>
                                 <div class="col-6">
-                                <input type="number"step="0.01" name="4HPBA" class="form-control" id="4HPBA" placeholder="0.8" min="0" max="99" required>
+                                <input type="number"step="0.01" name="4HPBA" class="form-control" id="4HPBA" placeholder="0.8" min="0" max="99" >
                                 </div>
                             </div>
                             <!-- pregunta 7 -->
@@ -128,7 +128,7 @@
                                     <label for="Cotinine-oxide" class="form-label">Cotinine-oxide:</label>
                                 </div>
                                 <div class="col-6">
-                                <input type="number" step="0.01" name="Cotinine-oxide" class="form-control" id="Cotinine-oxide" placeholder="0.8" min="0" max="99" required>
+                                <input type="number" step="0.01" name="Cotinine-oxide" class="form-control" id="Cotinine-oxide" placeholder="0.8" min="0" max="99" >
                                 </div>
                             </div>
                              <!-- pregunta 8 -->
@@ -137,7 +137,7 @@
                                     <label for="Nicotine-N-oxide" class="form-label">Nicotine-N-oxide:</label>
                                 </div>
                                 <div class="col-6">
-                                <input type="number" step="0.01" name="Nicotine-N-oxide" class="form-control" id="Nicotine-N-oxide" placeholder="0.8" min="0" max="99" required>
+                                <input type="number" step="0.01" name="Nicotine-N-oxide" class="form-control" id="Nicotine-N-oxide" placeholder="0.8" min="0" max="99" >
                                 </div>
                             </div>
                              <!-- pregunta 9 -->
@@ -148,36 +148,91 @@
                     </div>
                     <!--  -->
                     <div id="second-section-2" class="col-12 hidden w-75">
-                        <h3>Información Adicional</h3>
-                        <div class="row mt-4">
+                        <div class="row mt-4 "style="text-size-adjust: auto;" >
                             <form id="formSecondPart">
+                              <div class="form-group">
+
                                 <div class="col optional-form">
-                                    <div class="mb-3">
-                                        <label for="edad" class="form-label">Edad:</label>
-                                        <input type="number" name="edad" class="form-control" id="edad" placeholder="18" min="1" max="99" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="genero" class="form-label">Genero:</label>
-                                        <select id="genero" name="genero" class="form-select " aria-label="sexo">
-                                            <option value="M" selected>Masculino</option>
-                                            <option value="F">Femenino</option>
-                                          </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="edad-fumador" class="form-label">Edad a la que empezó a fumar:</label>
-                                        <input type="number" name="edad-fumador" class="form-control" id="edad-fumador" placeholder="18" min="1" max="99" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="cigarrillos-dia" class="form-label">Cigarrillos por día</label>
-                                        <select id="cigarrillos-dia" name="cigarrillos-dia" class="form-select" aria-label="cigarrillos-dia">
-                                            <option value="Menos de 5" selected>Menos de 5</option>
-                                            <option value="6 a 10">6 a 10</option>
-                                            <option value="11 a 20">11 a 20</option>
-                                            <option value="Más de 20">Más de 20</option>
-                                          </select>
+                                     <!-- SNP 1 -->
+                                     <div class="input-group mb-3">
+                                        <span class="input-group-text">rs1800822</span>
+                                        <input type="button" aria-label="WT" class="form-control" value="WT">
+                                        <input type="button" aria-label="HET" class="form-control" value="HET">
+                                        <input type="button" aria-label="MUT" class="form-control" value="MUT">
+
+                                      </div>
+                                       <!-- SNP 2 -->
+                                     <div class="input-group mb-3">
+                                        <span class="input-group-text">rs1800822</span>
+                                        <input type="button" aria-label="WT" class="form-control" value="WT">
+                                        <input type="button" aria-label="HET" class="form-control" value="HET">
+                                        <input type="button" aria-label="MUT" class="form-control" value="MUT">
+
+                                      </div>
+                                       <!-- SNP 3 -->
+                                     <div class="input-group mb-3">
+                                        <span class="input-group-text">rs1800822</span>
+                                        <input type="button" aria-label="WT" class="form-control" value="WT">
+                                        <input type="button" aria-label="HET" class="form-control" value="HET">
+                                        <input type="button" aria-label="MUT" class="form-control" value="MUT">
+
+                                      </div>
+                                       <!-- SNP 4 -->
+                                     <div class="input-group mb-3">
+                                        <span class="input-group-text">rs1800822</span>
+                                        <input type="button" aria-label="WT" class="form-control" value="WT">
+                                        <input type="button" aria-label="HET" class="form-control" value="HET">
+                                        <input type="button" aria-label="MUT" class="form-control" value="MUT">
+
+                                      </div>
+                                         <!-- SNP 5 -->
+                                     <div class="input-group mb-3">
+                                        <span class="input-group-text">rs1800822</span>
+                                        <input type="button" aria-label="WT" class="form-control" value="WT">
+                                        <input type="button" aria-label="HET" class="form-control" value="HET">
+                                        <input type="button" aria-label="MUT" class="form-control" value="MUT">
+
+                                      </div>
+                                         <!-- SNP 6 -->
+                                     <div class="input-group mb-3">
+                                        <span class="input-group-text">rs1800822</span>
+                                        <input type="button" aria-label="WT" class="form-control" value="WT">
+                                        <input type="button" aria-label="HET" class="form-control" value="HET">
+                                        <input type="button" aria-label="MUT" class="form-control" value="MUT">
+
+                                      </div>
+                                         <!-- SNP 7 -->
+                                     <div class="input-group mb-3">
+                                        <span class="input-group-text">rs1800822</span>
+                                        <input type="button" aria-label="WT" class="form-control" value="WT">
+                                        <input type="button" aria-label="HET" class="form-control" value="HET">
+                                        <input type="button" aria-label="MUT" class="form-control" value="MUT">
+
+                                      </div>
+                                         <!-- SNP 8 -->
+                                     <div class="input-group mb-3">
+                                        <span class="input-group-text">rs1800822</span>
+                                        <input type="button" aria-label="WT" class="form-control" value="WT">
+                                        <input type="button" aria-label="HET" class="form-control" value="HET">
+                                        <input type="button" aria-label="MUT" class="form-control" value="MUT">
+
+                                      </div>
+                                         <!-- SNP 9 -->
+                                     <div class="input-group mb-3">
+                                        <span class="input-group-text">rs1800sdsd822</span>
+                                        <input type="button" aria-label="WT" class="form-control" value="WT">
+                                        <input type="button" aria-label="HET" class="form-control" value="HET">
+                                        <input type="button" aria-label="MUT" class="form-control" value="MUT">
+
+                                      </div>
+                                     
+
+                                      </div>
                                     <button id="submit" type="submit" class="btn mt-4 w-100">Enviar</button>
                                     <a id="skip" type="button" class="btn-skip mt-4 w-100 hidden">Omitir</a>
                                 </div>
+                            </div>  
+
                             </div>
                             </form>
                     </div>

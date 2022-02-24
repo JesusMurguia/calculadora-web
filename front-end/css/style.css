@@ -126,6 +126,10 @@ main{
     color: var(--very-dark-cyan);
     background: var(--very-dark-cyan);
 }
+.required:after {
+    content:" *";
+    color: red;
+  }
 
 /* page indicator */
 .page-indicator{
@@ -192,7 +196,9 @@ main{
     padding: 1em;
 }
 
-
+.btn-outline-primary:focus{
+    background-color: rgb(17, 255, 49);
+ }
 
 /* meter */
 
