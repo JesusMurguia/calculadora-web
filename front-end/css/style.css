@@ -273,6 +273,11 @@ main {
 .btn-skip:active {
   color: black !important;
 }
+
+.informacion-adicional {
+  max-width: 50%;
+}
+
 @media screen and (max-width: 768px) {
   .container-fluid {
     width: 90%;
@@ -284,6 +289,10 @@ main {
   }
   .expand {
     height: 40em;
+  }
+
+  .informacion-adicional {
+    max-width: none;
   }
 }
 
