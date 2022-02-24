@@ -1,6 +1,7 @@
 const Paciente = require("../modelos/PacienteAvanzado");
 const sql = require("../modelos/db");
 const validacionMetabolitos = require("../modelos/validacionMetabolitos");
+const validacionVariacionGenetica = require("../modelos/validacionVariacionGenetica");
 
 module.exports = {
   create: async (req, res) => {
@@ -31,6 +32,10 @@ module.exports = {
 
     // se genera nivel de riesgo por cada metabolito
     newPaciente.resultadoMetabolitos = validacionMetabolitos(metabolitos);
+    // se genera nivel de riesgo por cada variacion genetica
+    newPaciente.resultadoVariacionGenetica = validacionVariacionGenetica(
+      newPaciente.totalVariacionGenetica
+    );
 
     // se verifica el token del paciente
     const { OAuth2Client } = require("google-auth-library");
@@ -48,64 +53,72 @@ module.exports = {
       // se inserta al paciente en la base de datos, si el paciente ya tiene un registro en la base de datos se actualiza
       sql
         .promise()
-        .query("INSERT INTO paciente SET ? ON DUPLICATE KEY UPDATE `edad` = ?, `edadFumador` = ?, `genero` = ?, `cigarrillosDia` = ?", [
-          {
-            idpaciente: userid,
-            edad: newPaciente.edad,
-            edadFumador: newPaciente.edadFumador,
-            genero: newPaciente.genero,
-            cigarrillosDia: newPaciente.cigarrillosDia,
-          },
-          newPaciente.edad,
-          newPaciente.edadFumador,
-          newPaciente.genero,
-          newPaciente.cigarrillosDia,
-        ])
-        .then((data) => {
-          sql.promise().query("INSERT INTO paciente_avanzado SET ? ON DUPLICATE KEY UPDATE `idpaciente` = `idpaciente` ", [
+        .query(
+          "INSERT INTO paciente SET ? ON DUPLICATE KEY UPDATE `edad` = ?, `edadFumador` = ?, `genero` = ?, `cigarrillosDia` = ?",
+          [
             {
               idpaciente: userid,
+              edad: newPaciente.edad,
+              edadFumador: newPaciente.edadFumador,
+              genero: newPaciente.genero,
+              cigarrillosDia: newPaciente.cigarrillosDia,
             },
-          ]).then((data) => {
-            sql
+            newPaciente.edad,
+            newPaciente.edadFumador,
+            newPaciente.genero,
+            newPaciente.cigarrillosDia,
+          ]
+        )
+        .then((data) => {
+          sql
             .promise()
             .query(
-              "INSERT INTO metabolitos (`idpaciente`, `3HC-0-Gluc`, `Cotinine-N-Gluc`, `3HC`, `Cotinine`, `Nicotine`, `Nicotine-N-Gluc`, `4HPBA`, `Cotinine-oxide`, `Nicotine-N-oxide`) VALUES (?,?,?,?,?,?,?,?,?,?) on duplicate key update `3HC-0-Gluc` = ?, `Cotinine-N-Gluc` = ?, `3HC` = ?, `Cotinine` = ?, `Nicotine` = ?, `Nicotine-N-Gluc` = ?, `4HPBA` = ?, `Cotinine-oxide` = ?, `Nicotine-N-oxide` = ?",
+              "INSERT INTO paciente_avanzado SET ? ON DUPLICATE KEY UPDATE `idpaciente` = `idpaciente` ",
               [
-                userid,
-                newPaciente.metabolitos[0],
-                newPaciente.metabolitos[1],
-                newPaciente.metabolitos[2],
-                newPaciente.metabolitos[3],
-                newPaciente.metabolitos[4],
-                newPaciente.metabolitos[5],
-                newPaciente.metabolitos[6],
-                newPaciente.metabolitos[7],
-                newPaciente.metabolitos[8],
-                newPaciente.metabolitos[0],
-                newPaciente.metabolitos[1],
-                newPaciente.metabolitos[2],
-                newPaciente.metabolitos[3],
-                newPaciente.metabolitos[4],
-                newPaciente.metabolitos[5],
-                newPaciente.metabolitos[6],
-                newPaciente.metabolitos[7],
-                newPaciente.metabolitos[8],
+                {
+                  idpaciente: userid,
+                },
               ]
             )
             .then((data) => {
-              console.log("ass",data);
-              res.status(200).send(newPaciente);
+              sql
+                .promise()
+                .query(
+                  "INSERT INTO metabolitos (`idpaciente`, `3HC-0-Gluc`, `Cotinine-N-Gluc`, `3HC`, `Cotinine`, `Nicotine`, `Nicotine-N-Gluc`, `4HPBA`, `Cotinine-oxide`, `Nicotine-N-oxide`) VALUES (?,?,?,?,?,?,?,?,?,?) on duplicate key update `3HC-0-Gluc` = ?, `Cotinine-N-Gluc` = ?, `3HC` = ?, `Cotinine` = ?, `Nicotine` = ?, `Nicotine-N-Gluc` = ?, `4HPBA` = ?, `Cotinine-oxide` = ?, `Nicotine-N-oxide` = ?",
+                  [
+                    userid,
+                    ...newPaciente.metabolitos,
+                    ...newPaciente.metabolitos,
+                  ]
+                )
+                .then((data) => {
+                  sql
+                    .promise()
+                    .query(
+                      "INSERT INTO variacion_genetica (`idpaciente`, `rs1800822`, `rs28363545`, `rs167771`, `rs2282511`, `rs3743078`, `rs578776`, `rs71581744`, `rs637137`, `rs503464`, `rs62380556`, `Chr5:63290337`, `rs17721739`, `rs985919`, `total`) VALUES (?,?) on duplicate key update `variacion_genetica` = ?",
+                      [
+                        userid,
+                        ...newPaciente.variacionGenetica,
+                        newPaciente.totalVariacionGenetica,
+                        ...newPaciente.variacionGenetica,
+                      ]
+                    )
+                    .then((data) => {
+                      console.log("ass", data);
+                      res.status(200).send(newPaciente);
+                    });
+                })
+                .catch((err) => {
+                  console.log(err);
+                  res.status(500).send({
+                    message:
+                      err.message || "Error al crear el paciente avanzado",
+                  });
+                });
             })
             .catch((err) => {
               console.log(err);
-              res.status(500).send({
-                message: err.message || "Error al crear el paciente avanzado",
-              });
             });
-          }).catch((err) => {
-            console.log(err);
-          });
         })
         .catch((error) => {
           console.log(error);

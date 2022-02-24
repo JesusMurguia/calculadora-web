@@ -19,8 +19,10 @@ class PacienteAvanzado {
     this.resultadoMetabolitos = resultadoMetabolitos;
     this.variacionGenetica = variacionGenetica;
     this.resultadoVariacionGenetica = resultadoVariacionGenetica;
+    this.totalVariacionGenetica = this.variacionGenetica.reduce(
+      (a, b) => a * b
+    );
   }
-  
 }
 
 module.exports = PacienteAvanzado;
