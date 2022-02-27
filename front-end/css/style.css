@@ -25,7 +25,8 @@ body {
 }
 main {
   max-width: 65em;
-  height: 45em;
+  min-height: 45em;
+  height: auto;
   border-radius: 1em;
   box-shadow: 0 0.5em 1em var(--dark-grayish-cyan);
   background: hsl(189, 41%, 97%);
@@ -36,6 +37,10 @@ main {
   padding: 2em;
   color: white;
   min-height: 20em;
+}
+
+main > .row {
+  min-height: 45em;
 }
 
 .result-section {
@@ -344,6 +349,13 @@ td {
 
 .form-check {
   padding: 0;
+}
+
+.input-group-text {
+  border-top-right-radius: 0.25em;
+  border-bottom-right-radius: 0.25em;
+  font-size: 1em;
+  background-color: rgb(255, 255, 255);
 }
 
 .expandRight {
