@@ -23,7 +23,9 @@
           <a href="./index.html" class="btn w-100">Calculadora Básica</a>
         </div>
         <div class="col-6">
-          <a href="./calculadoraAvanzada/index.html" class="btn-back btn w-100"
+          <a
+            href="./calculadoraAvanzadaV2/index.html"
+            class="btn-back btn w-100"
             >Calculadora Avanzada</a
           >
         </div>
@@ -334,17 +336,16 @@
                       <label for="cigarrillos-dia" class="form-label"
                         >Cigarrillos por día</label
                       >
-                      <select
-                        id="cigarrillos-dia"
+                      <input
+                        type="number"
                         name="cigarrillos-dia"
-                        class="form-select"
-                        aria-label="cigarrillos-dia"
-                      >
-                        <option value="Menos de 5" selected>Menos de 5</option>
-                        <option value="6 a 10">6 a 10</option>
-                        <option value="11 a 20">11 a 20</option>
-                        <option value="Más de 20">Más de 20</option>
-                      </select>
+                        class="form-control"
+                        id="cigarrillos-dia"
+                        placeholder="10"
+                        min="0"
+                        max="99"
+                        required
+                      />
                       <button id="submit" type="submit" class="btn mt-4 w-100">
                         Enviar
                       </button>

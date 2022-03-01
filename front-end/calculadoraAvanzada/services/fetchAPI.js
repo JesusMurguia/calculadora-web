@@ -23,12 +23,15 @@ export default class fetchAPI {
     }).then((res) => res.json());
   }
   static getVariacionGenetica() {
-    return fetch("http://localhost:3000/api/genetic_score_dictionary", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    }).then((res) => res.json());
+    return fetch(
+      "https://borregotestnet.ddns.net/api/genetic_score_dictionary",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }
+    ).then((res) => res.json());
   }
 }
