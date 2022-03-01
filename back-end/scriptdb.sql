@@ -26,15 +26,15 @@ DROP TABLE IF EXISTS `metabolitos`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `metabolitos` (
   `idpaciente` varchar(45) NOT NULL,
-  `3HC-0-Gluc` float DEFAULT NULL,
-  `Cotinine-N-Gluc` float DEFAULT NULL,
+  `3HC_0_Gluc` float DEFAULT NULL,
+  `Cotinine_N_Gluc` float DEFAULT NULL,
   `3HC` float DEFAULT NULL,
   `Cotinine` float DEFAULT NULL,
   `Nicotine` float DEFAULT NULL,
-  `Nicotine-N-Gluc` float DEFAULT NULL,
+  `Nicotine_N_Gluc` float DEFAULT NULL,
   `4HPBA` float DEFAULT NULL,
-  `Cotinine-oxide` float DEFAULT NULL,
-  `Nicotine-N-oxide` float DEFAULT NULL,
+  `Cotinine_oxide` float DEFAULT NULL,
+  `Nicotine_N_oxide` float DEFAULT NULL,
   PRIMARY KEY (`idpaciente`),
   UNIQUE KEY `idpaciente_UNIQUE` (`idpaciente`),
   CONSTRAINT `paciente_metabolitos` FOREIGN KEY (`idpaciente`) REFERENCES `paciente_avanzado` (`idpaciente`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -47,6 +47,7 @@ CREATE TABLE `metabolitos` (
 
 LOCK TABLES `metabolitos` WRITE;
 /*!40000 ALTER TABLE `metabolitos` DISABLE KEYS */;
+INSERT INTO `metabolitos` VALUES ('102662243596486368475',1,1,1,1,1,1,1,1,1),('108220895108372622378',0,0,0,0,1,0,0,0,0),('108734174590722974762',1,0,0,0,1,0,0,0,0);
 /*!40000 ALTER TABLE `metabolitos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,7 +63,7 @@ CREATE TABLE `paciente` (
   `edad` int NOT NULL,
   `edadFumador` int NOT NULL,
   `genero` varchar(1) NOT NULL,
-  `cigarrillosDia` varchar(45) NOT NULL,
+  `cigarrillosDia` int NOT NULL,
   PRIMARY KEY (`idpaciente`),
   UNIQUE KEY `idpaciente_UNIQUE` (`idpaciente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -74,6 +75,7 @@ CREATE TABLE `paciente` (
 
 LOCK TABLES `paciente` WRITE;
 /*!40000 ALTER TABLE `paciente` DISABLE KEYS */;
+INSERT INTO `paciente` VALUES ('102662243596486368475',3,2,'M',1),('108220895108372622378',32,2,'M',3),('108734174590722974762',21,2,'M',2),('117682244230891525629',4,4,'M',4);
 /*!40000 ALTER TABLE `paciente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -88,7 +90,7 @@ CREATE TABLE `paciente_avanzado` (
   `idpaciente` varchar(45) NOT NULL,
   PRIMARY KEY (`idpaciente`),
   UNIQUE KEY `idpaciente_UNIQUE` (`idpaciente`),
-  CONSTRAINT `paciente_avanzado` FOREIGN KEY (`idpaciente`) REFERENCES `paciente` (`idpaciente`)
+  CONSTRAINT `paciente_avanzado` FOREIGN KEY (`idpaciente`) REFERENCES `paciente` (`idpaciente`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -98,6 +100,7 @@ CREATE TABLE `paciente_avanzado` (
 
 LOCK TABLES `paciente_avanzado` WRITE;
 /*!40000 ALTER TABLE `paciente_avanzado` DISABLE KEYS */;
+INSERT INTO `paciente_avanzado` VALUES ('102662243596486368475'),('108220895108372622378'),('108734174590722974762');
 /*!40000 ALTER TABLE `paciente_avanzado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,7 +115,6 @@ CREATE TABLE `paciente_basico` (
   `idpaciente` varchar(45) NOT NULL,
   `puntos` int NOT NULL,
   `dependencia` varchar(45) NOT NULL,
-  `recomendaciones` varchar(256) NOT NULL,
   PRIMARY KEY (`idpaciente`),
   UNIQUE KEY `idpaciente_UNIQUE` (`idpaciente`),
   CONSTRAINT `paciente_basico` FOREIGN KEY (`idpaciente`) REFERENCES `paciente` (`idpaciente`)
@@ -125,6 +127,7 @@ CREATE TABLE `paciente_basico` (
 
 LOCK TABLES `paciente_basico` WRITE;
 /*!40000 ALTER TABLE `paciente_basico` DISABLE KEYS */;
+INSERT INTO `paciente_basico` VALUES ('108734174590722974762',3,'Baja');
 /*!40000 ALTER TABLE `paciente_basico` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,23 +140,25 @@ DROP TABLE IF EXISTS `variacion_genetica`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `variacion_genetica` (
   `idpaciente` varchar(45) NOT NULL,
-  `rs1800822` varchar(3) NOT NULL,
-  `rs28363545` varchar(3) NOT NULL,
-  `rs167771` varchar(3) NOT NULL,
-  `rs2282511` varchar(3) NOT NULL,
-  `rs3743078` varchar(3) NOT NULL,
-  `rs578776` varchar(3) NOT NULL,
-  `rs71581744` varchar(3) NOT NULL,
-  `rs637137` varchar(3) NOT NULL,
-  `rs503464` varchar(3) NOT NULL,
-  `rs62380556` varchar(3) NOT NULL,
-  `Chr5:63290337` varchar(3) NOT NULL,
-  `rs17721739` varchar(3) NOT NULL,
-  `rs985919` varchar(3) NOT NULL,
+  `rs1800822` float DEFAULT NULL,
+  `rs28363545` float DEFAULT NULL,
+  `rs167771` float DEFAULT NULL,
+  `rs2282511` float DEFAULT NULL,
+  `rs3743078` float DEFAULT NULL,
+  `rs578776` float DEFAULT NULL,
+  `rs71581744` float DEFAULT NULL,
+  `rs637137` float DEFAULT NULL,
+  `rs503464` float DEFAULT NULL,
+  `rs62380556` float DEFAULT NULL,
+  `rs12459249` float DEFAULT NULL,
+  `Chr5_63290337` float DEFAULT NULL,
+  `rs17721739` float DEFAULT NULL,
+  `rs985919` float DEFAULT NULL,
+  `total` float DEFAULT NULL,
   PRIMARY KEY (`idpaciente`),
-  KEY `paciente_variacion_genetica_idx` (`idpaciente`),
-  CONSTRAINT `paciente_variacion_genetica` FOREIGN KEY (`idpaciente`) REFERENCES `paciente_avanzado` (`idpaciente`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='	';
+  UNIQUE KEY `idpaciente_UNIQUE` (`idpaciente`),
+  CONSTRAINT `paciente_variacion_genetica` FOREIGN KEY (`idpaciente`) REFERENCES `paciente_avanzado` (`idpaciente`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,6 +167,7 @@ CREATE TABLE `variacion_genetica` (
 
 LOCK TABLES `variacion_genetica` WRITE;
 /*!40000 ALTER TABLE `variacion_genetica` DISABLE KEYS */;
+INSERT INTO `variacion_genetica` VALUES ('108220895108372622378',1,1,1,1,1,1,1,1,1,1,1,1,1,1,1),('108734174590722974762',0.37,0.37,0.45,2.56,2.13,0.5,0.49,0.53,0.46,0,2.29,3.4,0.52,2.97,0);
 /*!40000 ALTER TABLE `variacion_genetica` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -205,4 +211,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-16 16:34:54
+-- Dump completed on 2022-03-01  2:46:24

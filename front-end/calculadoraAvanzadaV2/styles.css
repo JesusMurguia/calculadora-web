@@ -1,0 +1,295 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+  --strong-cyan: #26c0ab;
+  --very-dark-cyan: #00494d;
+  --dark-grayish-cyan: #5e7a7d;
+  --dark-grayish-cyan-2: #7f9b9f;
+  --light-grayish-cyan: #c5e4e7;
+  --light-grayish-cyan-2: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  min-height: 100vh;
+  background: url(../images/Shiny-Overlay.png);
+  background-size: cover;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 65em;
+  padding: 1em;
+  border-radius: 1em;
+  box-shadow: 0 0.5em 1em var(--dark-grayish-cyan);
+  background: hsl(189, 41%, 97%);
+}
+
+.form-step > .row {
+  min-height: 36em;
+}
+
+.internal-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1em;
+}
+
+.required:after {
+  content: " *";
+  color: red;
+}
+
+nav {
+  max-width: 65em !important;
+  text-align: center;
+}
+
+.btn-next {
+  background: var(--very-dark-cyan);
+  color: var(--white);
+  font-size: 1em;
+  font-weight: 700;
+  height: 2.5em;
+  box-shadow: 0 0.125em 0.25em var(--dark-grayish-cyan);
+  border-radius: 0.25em;
+  border: 1px solid var(--very-dark-cyan);
+  text-decoration: none;
+}
+
+.btn-next:hover {
+  background: var(--white);
+  color: var(--very-dark-cyan);
+  box-shadow: 0 0.125em 0.25em var(--dark-grayish-cyan);
+  border: 1px solid var(--very-dark-cyan);
+  transition: all 0.25s ease-in-out;
+}
+
+.btn-back {
+  background: white;
+  color: var(--very-dark-cyan);
+  font-size: 1em;
+  font-weight: 700;
+  height: 2.5em;
+  box-shadow: 0 0.125em 0.25em var(--dark-grayish-cyan);
+  border-radius: 0.25em;
+  border: 1px solid var(--very-dark-cyan);
+  text-decoration: none;
+}
+
+.btn-back:hover {
+  background: var(--very-dark-cyan);
+  color: var(--white);
+  box-shadow: 0 0.125em 0.25em var(--dark-grayish-cyan);
+  border: 1px solid var(--very-dark-cyan);
+  transition: all 0.25s ease-in-out;
+}
+
+.card-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
+  background: url(../images/Shiny-Overlay-2.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border-radius: 1em;
+  box-shadow: 0 0.5em 1em var(--dark-grayish-cyan);
+  color: white;
+  height: auto;
+  padding: 1em 2em;
+}
+
+.multi-step-form {
+  position: relative;
+}
+
+.hide {
+  display: none;
+}
+
+.form-step {
+  animation: fadeOut 0.01s ease-in-out forwards;
+}
+
+.form-step.active {
+  animation: fadeIn 0.01s ease-in-out both;
+}
+
+table {
+  color: white !important;
+}
+td {
+  font-weight: bolder;
+}
+
+.expandRight {
+  justify-content: space-between;
+  -webkit-animation-name: expandRight;
+  animation-name: expandRight;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+@-webkit-keyframes expandRight {
+  0% {
+    width: 35%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes expandRight {
+  0% {
+    width: 35%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.form-check input[type="radio"] {
+  opacity: 0.01;
+  z-index: 100;
+}
+
+.form-check input[type="radio"]:checked + label,
+.Checked + label {
+  background-color: var(--very-dark-cyan);
+  color: var(--white);
+  border-radius: 0.25em;
+}
+
+.form-check label {
+  border: 1px solid var(--very-dark-cyan);
+  border-radius: 0.25em;
+  width: 100%;
+  padding: 0.35em;
+  text-align: center;
+  cursor: pointer;
+  z-index: 90;
+}
+
+.form-check label:hover {
+  background: #ddd;
+}
+
+.form-check {
+  padding: 0;
+}
+
+.input-group-text {
+  border-top-right-radius: 0.25em;
+  border-bottom-right-radius: 0.25em;
+  font-size: 1em;
+  background-color: rgb(255, 255, 255);
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: var(--very-dark-cyan);
+  text-align: center;
+  padding: 1em;
+}
+
+@media screen and (max-width: 768px) {
+  .main-content {
+    height: auto;
+  }
+  .btn-back,
+  .btn-next {
+    height: auto;
+  }
+  .form-step {
+    height: auto;
+  }
+  .gauge {
+    padding: 0;
+  }
+}
+
+/* meter */
+
+.gauge {
+  width: 100%;
+  padding: 1.5em;
+  max-width: 250px;
+  font-family: "Roboto", sans-serif;
+  font-size: 32px;
+  color: #004033;
+}
+
+.gauge__body {
+  width: 100%;
+  height: 0;
+  padding-bottom: 50%;
+  background: hsla(180, 37%, 97%, 0.247);
+  position: relative;
+  border-top-left-radius: 100% 200%;
+  border-top-right-radius: 100% 200%;
+  overflow: hidden;
+}
+
+.gauge__fill {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: inherit;
+  height: 100%;
+  background: #009578;
+  transform-origin: center top;
+  transform: rotate(0.25turn);
+  transition: transform 0.2s ease-out;
+}
+
+.gauge__cover {
+  width: 75%;
+  height: 150%;
+  background: hsl(183, 100%, 15%);
+  color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* Text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 25%;
+  box-sizing: border-box;
+  font-size: 0.6em;
+}
