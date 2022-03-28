@@ -2,7 +2,7 @@ import fetchAPI from "../services/fetchAPI.js";
 import Medidor from "../models/Medidor.js";
 
 class FormPopulator {
-  constructor() {}
+  constructor() { }
   async init() {
     const data = await fetchAPI.getVariacionGenetica();
 
@@ -20,15 +20,15 @@ class FormPopulator {
   }
   static result(data) {
     const nombresMetabolitos = [
-      "3HC-O-Gluc",
-      "Cotinine-N-Gluc",
-      "3HC",
-      "Cotinine",
-      "Nicotine",
-      "Nicotine-N-Gluc",
+      "3-hidroxicotinina-O-Gluc",
+      "Cotinina-N-Gluc",
+      "3-hidroxicotinina",
+      "Cotinina",
+      "Nicotina",
+      "Nicotina-N-Gluc",
       "4HPBA",
-      "Cotinine-oxide",
-      "Nicotine-N-oxide",
+      "Óxido de cotinina",
+      "Óxido de Nicotina",
     ];
 
     //se popula la tabla de resultados
@@ -65,8 +65,7 @@ class FormPopulator {
     return `
     <div class="mb-3">
       <div class="row input-group d-flex flex-row align-content-center align-items-center">
-      <div class="col-3 p-1 d-flex justify-content-center input-group-text">${
-        data.snp
+      <div class="col-3 p-1 d-flex justify-content-center input-group-text">${data.snp
       }</div>
           <div class="col-3  ps-0 pe-0">
           <div class="form-check">
