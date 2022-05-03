@@ -6,24 +6,32 @@ class FormPopulator {
   async init() {
     const data = await fetchAPI.getVariacionGenetica();
 
+
     let newform = document.getElementById("snp-form");
-    let newform2 = document.getElementById("snp-form-2");
 
-    let data2 = data.splice(0, data.length / 2);
 
-    data2.forEach((data) => {
+    data.forEach((data) => {
       newform.innerHTML += this.newElement(data);
     });
-    data.forEach((data) => {
-      newform2.innerHTML += this.newElement(data);
-    });
+
+    let varianteBtn = document.querySelectorAll(".variante-btn");
+    let varianteTooltip = document.querySelectorAll(".variante-tooltip");
+
+    for (let i = 0; i < varianteBtn.length; i++) {
+      // show tooltip on hover
+      varianteBtn[i].addEventListener("mouseover", function () {
+        varianteTooltip[i].classList.add("show");
+      });
+      varianteBtn[i].addEventListener("mouseout", function () {
+        varianteTooltip[i].classList.remove("show");
+      });
+    }
   }
   static result(data) {
     const nombresMetabolitos = [
       "3-hidroxicotinina-O-Gluc",
       "Cotinina-N-Gluc",
       "3-hidroxicotinina",
-      "Cotinina",
       "Nicotina",
       "Nicotina-N-Gluc",
       "4HPBA",
@@ -67,7 +75,8 @@ class FormPopulator {
       <div class="row input-group d-flex flex-row align-content-center align-items-center">
       <div class="col-3 p-1 d-flex justify-content-center input-group-text">${data.snp
       }</div>
-          <div class="col-3  ps-0 pe-0">
+          <div class="col-3  ps-0 pe-0 variante-btn">
+            <div class="variante-tooltip">${data.wt}</div>
           <div class="form-check">
               <input
               class="form-check-input"
@@ -79,11 +88,14 @@ class FormPopulator {
               <label
               class="form-check-label"
               for="WT${data.idvariacion_genetica}"
+              data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top"
               >
               WT
               </label>
           </div>
-          </div><div class="col-3  ps-0 pe-0">
+          </div><div class="col-3  ps-0 pe-0 variante-btn">
+          <div class="variante-tooltip">${data.het}</div>
+
           <div class="form-check">
               <input
               class="form-check-input"
@@ -102,7 +114,9 @@ class FormPopulator {
               </label>
           </div>
           </div>
-          <div class="col-3  ps-0 pe-0">
+          <div class="col-3  ps-0 pe-0 variante-btn">
+          <div class="variante-tooltip">${data.mut}</div>
+
           <div class="form-check">
               <input
               class="form-check-input"

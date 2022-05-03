@@ -1,8 +1,8 @@
 export default class fetchAPI {
-  constructor() {}
+  constructor() { }
 
   static postPaciente(paciente) {
-    return fetch("https://borregotestnet.ddns.net/api/paciente_avanzado", {
+    return fetch("http://localhost:8055/api/paciente_avanzado", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -14,7 +14,7 @@ export default class fetchAPI {
   }
   static getVariacionGenetica() {
     return fetch(
-      "https://borregotestnet.ddns.net/api/genetic_score_dictionary",
+      "http://localhost:8055/api/genetic_score_dictionary",
       {
         method: "GET",
         headers: {
