@@ -51,110 +51,97 @@ class MetabolitosModel {
 		const validaciones = [
 			(valor) => {
 				//3HC_O_Gluc
-				if (valor < 1.1) {
+				if (valor < 1.020) {
 					return "Bajo";
 				}
-				if (valor >= 1.1 && valor <= 3.48) {
+				if (valor >= 1.020 && valor <= 2.687) {
 					return "Medio";
 				}
-				if (valor > 3.48) {
+				if (valor > 2.687) {
 					return "Alto";
 				}
 			},
 			(valor) => {
 				//Cotinine_N_Gluc
-				if (valor < 1.3) {
+				if (valor < 1.179) {
 					return "Bajo";
 				}
-				//Aqui es o 1.2 o 1.3 error en el documento
-				if (valor >= 1.3 && valor <= 2.59) {
+				if (valor >= 1.179 && valor <= 1.984) {
 					return "Medio";
 				}
-				if (valor > 2.59) {
+				if (valor > 1.984) {
 					return "Alto";
 				}
 			},
 			(valor) => {
 				//3HC
-				if (valor < 0.8) {
+				if (valor < 0.7677) {
 					return "Bajo";
 				}
-				if (valor >= 0.8 && valor <= 1.67) {
+				if (valor >= 0.7677 && valor <= 1.393) {
 					return "Medio";
 				}
-				if (valor > 1.67) {
-					return "Alto";
-				}
-			},
-			(valor) => {
-				//Cotinine
-				if (valor < 0.7) {
-					return "Bajo";
-				}
-				if (valor >= 0.7 && valor <= 1.23) {
-					return "Medio";
-				}
-				if (valor > 1.23) {
+				if (valor > 1.393) {
 					return "Alto";
 				}
 			},
 			(valor) => {
 				//Nicotine
-				if (valor < 0.52) {
+				if (valor < 0.05082) {
 					return "Bajo";
 				}
-				if (valor >= 0.52 && valor <= 0.8) {
+				if (valor >= 0.05082 && valor <= 0.1812) {
 					return "Medio";
 				}
-				if (valor > 0.8) {
+				if (valor > 0.1812) {
 					return "Alto";
 				}
 			},
 			(valor) => {
 				//Nicotine_N_Gluc
-				if (valor < 0.22) {
+				if (valor < 0.20) {
 					return "Bajo";
 				}
-				if (valor >= 0.22 && valor <= 0.43) {
+				if (valor >= 0.20 && valor <= 0.296) {
 					return "Medio";
 				}
-				if (valor > 0.43) {
+				if (valor > 0.296) {
 					return "Alto";
 				}
 			},
 			(valor) => {
 				// 4HPBA
-				if (valor < 0.16) {
+				if (valor < 0.158) {
 					return "Bajo";
 				}
-				if (valor >= 0.16 && valor <= 0.41) {
+				if (valor >= 0.158 && valor <= 0.370) {
 					return "Medio";
 				}
-				if (valor > 0.41) {
+				if (valor > 0.370) {
 					return "Alto";
 				}
 			},
 			(valor) => {
 				//Cotinine_oxide
-				if (valor < 0.2) {
+				if (valor < 0.191) {
 					return "Bajo";
 				}
-				if (valor >= 0.2 && valor <= 0.43) {
+				if (valor >= 0.191 && valor <= 0.386) {
 					return "Medio";
 				}
-				if (valor > 0.43) {
+				if (valor > 0.386) {
 					return "Alto";
 				}
 			},
 			(valor) => {
 				//Nicotine_N_oxide
-				if (valor < 0.12) {
+				if (valor < 0.126) {
 					return "Bajo";
 				}
-				if (valor >= 0.12 && valor <= 0.45) {
+				if (valor >= 0.126 && valor <= 0.309) {
 					return "Medio";
 				}
-				if (valor > 0.45) {
+				if (valor > 0.309) {
 					return "Alto";
 				}
 			},
