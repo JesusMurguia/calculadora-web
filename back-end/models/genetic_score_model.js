@@ -18,7 +18,7 @@ class GeneticScoreModel {
 		this.paciente.genetic_score_total = this.paciente.genetic_score.reduce((a, b) => a * b, 1);
 		this.paciente.resultado_genetic_score = this.validacionVariacionGenetica(this.paciente.genetic_score_total);
 		try {
-			const sql = `INSERT INTO ${this.table} (idpaciente, rs1800822, rs28363545, rs167771, rs2282511, rs3743078, rs578776, rs71581744, rs637137, rs503464, rs62380556, rs12459249, Chr5_63290337, rs17721739, rs985919, total, riesgo) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)  ON DUPLICATE KEY UPDATE idpaciente = VALUES(idpaciente), rs1800822 = VALUES(rs1800822), rs28363545 = VALUES(rs28363545), rs167771 = VALUES(rs167771), rs2282511 = VALUES(rs2282511), rs3743078 = VALUES(rs3743078), rs578776 = VALUES(rs578776), rs71581744 = VALUES(rs71581744), rs637137 = VALUES(rs637137), rs503464 = VALUES(rs503464), rs62380556 = VALUES(rs62380556), rs12459249 = VALUES(rs12459249), Chr5_63290337 = VALUES(Chr5_63290337), rs17721739 = VALUES(rs17721739), rs985919 = VALUES(rs985919), total = VALUES(total), riesgo = VALUES(riesgo)`;
+			const sql = `INSERT INTO ${this.table} (idpaciente, rs2431413, rs140122859, rs503464, rs637137, rs578776, rs167771, rs1800822, total, riesgo) VALUES(?,?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE rs2431413 = VALUES(rs2431413), rs140122859 = VALUES(rs140122859), rs503464 = VALUES(rs503464), rs637137 = VALUES(rs637137), rs578776 = VALUES(rs578776), rs167771 = VALUES(rs167771), rs1800822 = VALUES(rs1800822), total = VALUES(total), riesgo = VALUES(riesgo)`;
 			await query(sql, [
 				this.paciente.idpaciente,
 				...this.paciente.genetic_score,
@@ -32,7 +32,7 @@ class GeneticScoreModel {
 	};
 	createBulk = async (data) => {
 		try {
-			const sql = `INSERT INTO ${this.table} (idpaciente, rs1800822, rs28363545, rs167771, rs2282511, rs3743078, rs578776, rs71581744, rs637137, rs503464, rs62380556, rs12459249, Chr5_63290337, rs17721739, rs985919, total, riesgo) VALUES ? ON DUPLICATE KEY UPDATE idpaciente = VALUES(idpaciente), rs1800822 = VALUES(rs1800822), rs28363545 = VALUES(rs28363545), rs167771 = VALUES(rs167771), rs2282511 = VALUES(rs2282511), rs3743078 = VALUES(rs3743078), rs578776 = VALUES(rs578776), rs71581744 = VALUES(rs71581744), rs637137 = VALUES(rs637137), rs503464 = VALUES(rs503464), rs62380556 = VALUES(rs62380556), rs12459249 = VALUES(rs12459249), Chr5_63290337 = VALUES(Chr5_63290337), rs17721739 = VALUES(rs17721739), rs985919 = VALUES(rs985919), total = VALUES(total), riesgo = VALUES(riesgo)`;
+			const sql = `INSERT INTO ${this.table} (idpaciente, rs2431413, rs140122859, rs503464, rs637137, rs578776, rs167771, rs1800822, total, riesgo) VALUES(?,?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE rs2431413 = VALUES(rs2431413), rs140122859 = VALUES(rs140122859), rs503464 = VALUES(rs503464), rs637137 = VALUES(rs637137), rs578776 = VALUES(rs578776), rs167771 = VALUES(rs167771), rs1800822 = VALUES(rs1800822), total = VALUES(total), riesgo = VALUES(riesgo)`;
 			await query(sql, [data]);
 			return data;
 		} catch (err) {
@@ -41,7 +41,7 @@ class GeneticScoreModel {
 	};
 	update = async (id, data) => {
 		try {
-			const sql = `UPDATE ${this.table} SET rs1800822 = ?, rs28363545 = ?, rs167771 = ?, rs2282511 = ?, rs3743078 = ?, rs578776 = ?, rs71581744 = ?, rs637137 = ?, rs503464 = ?, rs62380556 = ?, rs12459249 = ?, Chr5_63290337 = ?, rs17721739 = ?, rs985919 = ?, total = ?, riesgo = ? WHERE idpaciente = ?`;
+			const sql = `UPDATE ${this.table} SET rs2431413 = ?, rs140122859 = ?, rs503464 = ?, rs637137 = ?, rs578776 = ?, rs167771 = ?, rs1800822 = ?, total = ?, riesgo = ? WHERE idpaciente = ?`;
 			await query(sql, [...this.paciente.genetic_score, this.paciente.genetic_score_total, id]);
 			return this.paciente;
 		} catch (err) {
@@ -53,13 +53,13 @@ class GeneticScoreModel {
 		return await query(sql, [id]);
 	};
 	validacionVariacionGenetica = (total) => {
-		if (total < 0.01617) {
+		if (total < 19.56) {
 			return "Bajo";
 		}
-		if (total >= 0.01617 && total <= 0.1007) {
+		if (total >= 19.56 && total <= 105.6) {
 			return "Medio";
 		}
-		if (total > 0.1007) {
+		if (total > 105.6) {
 			return "Alto";
 		}
 	};

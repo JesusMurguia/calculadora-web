@@ -68,7 +68,6 @@ class PacienteAvanzadoController {
 					paciente["3HC_O_Gluc"] ? Number(paciente["3HC_O_Gluc"]) : 0,
 					paciente["Cotinine_N_Gluc"] ? Number(paciente["Cotinine_N_Gluc"]) : 0,
 					paciente["3HC"] ? Number(paciente["3HC"]) : 0,
-					paciente["Cotinine"] ? Number(paciente["Cotinine"]) : 0,
 					paciente["Nicotine"] ? Number(paciente["Nicotine"]) : 0,
 					paciente["Nicotine_N_Gluc"] ? Number(paciente["Nicotine_N_Gluc"]) : 0,
 					paciente["4HPBA"] ? Number(paciente["4HPBA"]) : 0,
@@ -83,20 +82,13 @@ class PacienteAvanzadoController {
 
 				genetic_score.push([
 					paciente.idpaciente ? paciente.idpaciente.toString() : `paciente${index}`,
-					paciente.rs1800822 ? Number(paciente.rs1800822) : 1,
-					paciente.rs28363545 ? Number(paciente.rs28363545) : 1,
-					paciente.rs167771 ? Number(paciente.rs167771) : 1,
-					paciente.rs2282511 ? Number(paciente.rs2282511) : 1,
-					paciente.rs3743078 ? Number(paciente.rs3743078) : 1,
-					paciente.rs578776 ? Number(paciente.rs578776) : 1,
-					paciente.rs71581744 ? Number(paciente.rs71581744) : 1,
-					paciente.rs637137 ? Number(paciente.rs637137) : 1,
+					paciente.rs2431413 ? Number(paciente.rs2431413) : 1,
+					paciente.rs140122859 ? Number(paciente.rs140122859) : 1,
 					paciente.rs503464 ? Number(paciente.rs503464) : 1,
-					paciente.rs62380556 ? Number(paciente.rs62380556) : 1,
-					paciente.rs12459249 ? Number(paciente.rs12459249) : 1,
-					paciente.Chr5_63290337 ? Number(paciente.Chr5_63290337) : 1,
-					paciente.rs17721739 ? Number(paciente.rs17721739) : 1,
-					paciente.rs985919 ? Number(paciente.rs985919) : 1,
+					paciente.rs637137 ? Number(paciente.rs637137) : 1,
+					paciente.rs578776 ? Number(paciente.rs578776) : 1,
+					paciente.rs167771 ? Number(paciente.rs167771) : 1,
+					paciente.rs1800822 ? Number(paciente.rs1800822) : 1,
 				]);
 
 				let total = Number(
