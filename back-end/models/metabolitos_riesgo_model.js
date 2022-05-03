@@ -16,7 +16,7 @@ class MetabolitosModel {
 	create = async (data) => {
 		this.paciente = data;
 		try {
-			const sql = `INSERT INTO ${this.table} (idpaciente, 3HC_O_Gluc, Cotinine_N_Gluc, 3HC,Cotinine, Nicotine, Nicotine_N_Gluc, 4HPBA, Cotinine_oxide, Nicotine_N_oxide) VALUES (?,?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE idpaciente = VALUES(idpaciente), 3HC_O_Gluc = VALUES(3HC_O_Gluc), Cotinine_N_Gluc = VALUES(Cotinine_N_Gluc), 3HC = VALUES(3HC), Cotinine = VALUES(Cotinine), Nicotine = VALUES(Nicotine), Nicotine_N_Gluc = VALUES(Nicotine_N_Gluc), 4HPBA = VALUES(4HPBA), Cotinine_oxide = VALUES(Cotinine_oxide), Nicotine_N_oxide = VALUES(Nicotine_N_oxide)`;
+			const sql = `INSERT INTO ${this.table} (idpaciente, 3HC_O_Gluc, Cotinine_N_Gluc, 3HC, Nicotine, Nicotine_N_Gluc, 4HPBA, Cotinine_oxide, Nicotine_N_oxide) VALUES (?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE idpaciente = VALUES(idpaciente), 3HC_O_Gluc = VALUES(3HC_O_Gluc), Cotinine_N_Gluc = VALUES(Cotinine_N_Gluc), 3HC = VALUES(3HC), Nicotine = VALUES(Nicotine), Nicotine_N_Gluc = VALUES(Nicotine_N_Gluc), 4HPBA = VALUES(4HPBA), Cotinine_oxide = VALUES(Cotinine_oxide), Nicotine_N_oxide = VALUES(Nicotine_N_oxide)`;
 			await query(sql, [this.paciente.idpaciente, ...this.paciente.resultadoMetabolitos]);
 			return this.paciente;
 		} catch (err) {
@@ -25,7 +25,7 @@ class MetabolitosModel {
 	};
 	createBulk = async (data) => {
 		try {
-			const sql = `INSERT INTO ${this.table} (idpaciente, 3HC_O_Gluc, Cotinine_N_Gluc, 3HC,Cotinine, Nicotine, Nicotine_N_Gluc, 4HPBA, Cotinine_oxide, Nicotine_N_oxide) VALUES ? ON DUPLICATE KEY UPDATE idpaciente = VALUES(idpaciente), 3HC_O_Gluc = VALUES(3HC_O_Gluc), Cotinine_N_Gluc = VALUES(Cotinine_N_Gluc), 3HC = VALUES(3HC), Cotinine = VALUES(Cotinine), Nicotine = VALUES(Nicotine), Nicotine_N_Gluc = VALUES(Nicotine_N_Gluc), 4HPBA = VALUES(4HPBA), Cotinine_oxide = VALUES(Cotinine_oxide), Nicotine_N_oxide = VALUES(Nicotine_N_oxide)`;
+			const sql = `INSERT INTO ${this.table} (idpaciente, 3HC_O_Gluc, Cotinine_N_Gluc, 3HC, Nicotine_N_Gluc, 4HPBA, Cotinine_oxide, Nicotine_N_oxide) VALUES ? ON DUPLICATE KEY UPDATE idpaciente = VALUES(idpaciente), 3HC_O_Gluc = VALUES(3HC_O_Gluc), Cotinine_N_Gluc = VALUES(Cotinine_N_Gluc), 3HC = VALUES(3HC), Nicotine = VALUES(Nicotine), Nicotine_N_Gluc = VALUES(Nicotine_N_Gluc), 4HPBA = VALUES(4HPBA), Cotinine_oxide = VALUES(Cotinine_oxide), Nicotine_N_oxide = VALUES(Nicotine_N_oxide)`;
 			await query(sql, [data]);
 			return data;
 		} catch (err) {
@@ -34,7 +34,7 @@ class MetabolitosModel {
 	};
 	update = async (id, data) => {
 		try {
-			const sql = `UPDATE ${this.table} SET 3HC_O_Gluc = ?, Cotinine_N_Gluc = ?, 3HC = ?,Cotinine = ?, Nicotine = ?, Nicotine_N_Gluc = ?, 4HPBA = ?, Cotinine_oxide = ?, Nicotine_N_oxide = ? WHERE idpaciente = ?`;
+			const sql = `UPDATE ${this.table} SET 3HC_O_Gluc = ?, Cotinine_N_Gluc = ?, 3HC = ?, Nicotine = ?, Nicotine_N_Gluc = ?, 4HPBA = ?, Cotinine_oxide = ?, Nicotine_N_oxide = ? WHERE idpaciente = ?`;
 			await query(sql, [...data, id]);
 			return this.paciente;
 		} catch (err) {
