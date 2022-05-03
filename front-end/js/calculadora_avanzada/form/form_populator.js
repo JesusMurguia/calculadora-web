@@ -83,7 +83,7 @@ class FormPopulator {
               type="radio"
               name="variacionGenetica${data.snp}"
               id="WT${data.idvariacion_genetica}"
-              value="${data.wt_riesgo.toFixed(2)}"
+              value="${data.wt_riesgo}"
               />
               <label
               class="form-check-label"
@@ -102,7 +102,7 @@ class FormPopulator {
               type="radio"
               name="variacionGenetica${data.snp}"
               id="HET${data.idvariacion_genetica}"
-              value="${data.het_riesgo.toFixed(2)}"
+              value="${data.het_riesgo}"
               checked
               />
               <label
@@ -123,7 +123,7 @@ class FormPopulator {
               type="radio"
               name="variacionGenetica${data.snp}"
               id="MUT${data.idvariacion_genetica}"
-              value="${data.mut_riesgo.toFixed(2)}"
+              value="${data.mut_riesgo}"
               />
               <label
               class="form-check-label"

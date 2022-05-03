@@ -32,7 +32,7 @@ class GeneticScoreModel {
 	};
 	createBulk = async (data) => {
 		try {
-			const sql = `INSERT INTO ${this.table} (idpaciente, rs2431413, rs140122859, rs503464, rs637137, rs578776, rs167771, rs1800822, total, riesgo) VALUES(?,?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE rs2431413 = VALUES(rs2431413), rs140122859 = VALUES(rs140122859), rs503464 = VALUES(rs503464), rs637137 = VALUES(rs637137), rs578776 = VALUES(rs578776), rs167771 = VALUES(rs167771), rs1800822 = VALUES(rs1800822), total = VALUES(total), riesgo = VALUES(riesgo)`;
+			const sql = `INSERT INTO ${this.table} (idpaciente, rs2431413, rs140122859, rs503464, rs637137, rs578776, rs167771, rs1800822, total, riesgo) VALUES ? ON DUPLICATE KEY UPDATE rs2431413 = VALUES(rs2431413), rs140122859 = VALUES(rs140122859), rs503464 = VALUES(rs503464), rs637137 = VALUES(rs637137), rs578776 = VALUES(rs578776), rs167771 = VALUES(rs167771), rs1800822 = VALUES(rs1800822), total = VALUES(total), riesgo = VALUES(riesgo)`;
 			await query(sql, [data]);
 			return data;
 		} catch (err) {
