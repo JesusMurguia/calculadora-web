@@ -1,5 +1,5 @@
 export default class fetchAPI {
-  constructor() {}
+  constructor() { }
 
   static postPaciente(paciente) {
     return fetch("https://borregotestnet.ddns.net/api/paciente_basico", {
