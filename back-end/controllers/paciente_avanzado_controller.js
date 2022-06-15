@@ -66,9 +66,7 @@ class PacienteAvanzadoController {
 				metabolitos.push([
 					paciente.idpaciente ? paciente.idpaciente.toString() : `paciente${index}`,
 					paciente["3HC_O_Gluc"] ? Number(paciente["3HC_O_Gluc"]) : 0,
-					paciente["Cotinine_N_Gluc"] ? Number(paciente["Cotinine_N_Gluc"]) : 0,
 					paciente["3HC"] ? Number(paciente["3HC"]) : 0,
-					paciente["Nicotine"] ? Number(paciente["Nicotine"]) : 0,
 					paciente["Nicotine_N_Gluc"] ? Number(paciente["Nicotine_N_Gluc"]) : 0,
 					paciente["4HPBA"] ? Number(paciente["4HPBA"]) : 0,
 					paciente["Cotinine_oxide"] ? Number(paciente["Cotinine_oxide"]) : 0,

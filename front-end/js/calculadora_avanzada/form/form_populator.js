@@ -28,36 +28,21 @@ class FormPopulator {
     }
   }
   static result(data) {
-    const nombresMetabolitos = [
-      "3-hidroxicotinina-O-Gluc",
-      "Cotinina-N-Gluc",
-      "3-hidroxicotinina",
-      "Nicotina",
-      "Nicotina-N-Gluc",
-      "4HPBA",
-      "Óxido de cotinina",
-      "Óxido de Nicotina",
-    ];
-
-    //se popula la tabla de resultados
-    let table = document.getElementById("table-body");
-    for (let i = 0; i < data.metabolitos.length; i++) {
-      if (data.metabolitos[i] !== 0) {
-        table.innerHTML += `<tr>
-        <td class="text-align-left">${nombresMetabolitos[i]}</td>
-        <td>${data.resultadoMetabolitos[i]}</td>
-        <td>${data.metabolitos[i]}</td>
-        </tr>
-        `;
-      }
-    }
-
+    console.log(data);
     // se crea el medidor y se ajusta de acuerdo a la dependencia
     const medidor1 = new Medidor(document.getElementById("gauge-1"));
     medidor1.ajustarMedidor("Bajo");
     // delay de medio segundo para que se vea la animacion perrona
     setTimeout(() => {
       medidor1.ajustarMedidor(data.resultado_genetic_score);
+    }, 500);
+
+    // se crea el medidor y se ajusta de acuerdo a la dependencia
+    const medidor3 = new Medidor(document.getElementById("gauge-3"));
+    medidor3.ajustarMedidor("Bajo");
+    // delay de medio segundo para que se vea la animacion perrona
+    setTimeout(() => {
+      medidor3.ajustarMedidor(data.resultadoMetabolitos[data.resultadoMetabolitos.length - 1]);
     }, 500);
 
     // se crea el medidor y se ajusta de acuerdo a la dependencia
