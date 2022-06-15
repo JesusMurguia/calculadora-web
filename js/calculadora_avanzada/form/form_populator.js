@@ -28,7 +28,6 @@ class FormPopulator {
     }
   }
   static result(data) {
-    console.log(data);
     // se crea el medidor y se ajusta de acuerdo a la dependencia
     const medidor1 = new Medidor(document.getElementById("gauge-1"));
     medidor1.ajustarMedidor("Bajo");
