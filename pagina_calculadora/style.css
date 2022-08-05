@@ -388,6 +388,7 @@ nav ul li .btns:hover::before{
 	background: url(./images/Shiny\ Overlay-3.png), #26c0ab;
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
+	grid-template-rows: min-content;
 }
 .grid > .card {
 	background: url(./images/Shiny-Overlay-2.png);
@@ -463,21 +464,32 @@ nav ul li .btns:hover::before{
 		grid-template-columns: 100%;
 		grid-template-rows: 1fr;
 	}
+	.intro{
+	grid-column: 1;
+	grid-row: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: justify;
+	padding-left: 60px;
+	}
+
 	
+
 	.hero {
 		grid-column: 2 / 2;
 		grid-row: 1 / 1;
 	}
 
 	.learn-more h1 {
-		font-size:32px;
+		font-size: 32px;
 		font-weight: 700;
 		width: 85%;
 		margin-bottom: 0;
 	}
 
 	.learn-more p {
-		font-size:16px;
+		font-size: 16px;
 		line-height: 1.5;
 		text-align: justify;
 		width: 100%;
