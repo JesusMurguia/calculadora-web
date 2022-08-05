@@ -55,9 +55,10 @@ window.onload = function () {
         .then(data => {
             const list = data.data;
             const section5grid = document.querySelector('.section6-grid');
-            list.forEach(item => {
+            list.forEach((item, index) => {
                 const div = document.createElement('div');
-                div.classList.add('card');
+                div.classList.add(`card`);
+                div.classList.add(`card-${index + 1}`);
                 div.innerHTML = item.Tip
                 section5grid.appendChild(div);
             });
