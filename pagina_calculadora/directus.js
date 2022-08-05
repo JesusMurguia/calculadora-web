@@ -4,9 +4,9 @@ window.onload = function () {
     fetch(URL + 'items/Calculadora')
         .then(response => response.json())
         .then(data => {
-            const { Titulo, Descripcion, Imagen_de_calculadora } = data.data;
+            const { Titulo, introduccion_texto, Imagen_de_calculadora } = data.data;
             document.querySelector('.section1-title').innerHTML = Titulo;
-            document.querySelector('.section1-description').innerHTML = Descripcion;
+            document.querySelector('.section1-description').innerHTML = introduccion_texto;
             document.querySelector('.section1-img').src = `${URL}assets/${Imagen_de_calculadora}`;
         });
 

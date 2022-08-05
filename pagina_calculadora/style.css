@@ -203,14 +203,15 @@ nav {
 }
 
 .learn-more h1 {
-	font-size: clamp(2.2rem, 5vw, 5rem);
+	font-size: small;
 	font-weight: 700;
 	color: var(--very-dark-cyan);
+	text-align: center;
 }
 
 .learn-more p {
 	color: var(--dark-grayish-cyan);
-	font-size: clamp(15px, 5vw, 18px);
+	font-size: 12px;
 	line-height: 1.5;
 	color: var(--very-dark-cyan);
 }
@@ -420,16 +421,17 @@ nav {
 		grid-template-columns: 50% 50%;
 		grid-template-rows: 1fr;
 	}
-
-	.learn-more {
-		grid-column: 1 / 2;
-		grid-row: 1 / 1;
-		flex-direction: column;
-		justify-content: center;
-		text-align: start;
-		gap: 2rem;
-		margin-bottom: 4rem;
+	.intro{
+	grid-column: 1;
+	grid-row: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: justify;
+	padding-left: 60px;
 	}
+
+	
 
 	.hero {
 		grid-column: 2 / 2;
@@ -437,16 +439,17 @@ nav {
 	}
 
 	.learn-more h1 {
-		font-size: clamp(2.2rem, 5vw, 5rem);
+		font-size:32px;
 		font-weight: 700;
 		width: 85%;
 		margin-bottom: 0;
 	}
 
 	.learn-more p {
-		font-size: clamp(15px, 5vw, 18px);
+		font-size:16px;
 		line-height: 1.5;
-		width: 85%;
+		width: 100%;
+		text-align: justify;
 	}
 
 	.btn-primary {
