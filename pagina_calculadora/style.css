@@ -178,6 +178,7 @@ nav ul li .btns:hover::before{
 .dropdown-btn {
 	padding-right: 1.5rem;
 	position: relative;
+	
 }
 
 .dropdown-btn::after {
@@ -516,6 +517,7 @@ nav ul li .btns:hover::before{
 		display: none !important;
 	}
 	.dropdown-content {
+		display: inline-block !important;
 		opacity: 0;
 		position: absolute;
 		padding-top: 1.25rem;
