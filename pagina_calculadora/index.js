@@ -60,7 +60,15 @@ window.onload = function () {
             document.querySelector('.section1-description').innerHTML = introduccion_texto;
             document.querySelector('.section1-img').src = `${URL}assets/${Imagen_de_calculadora}`;
         });
-
+  //proyecto investigacion
+  fetch(URL + 'items/ProyectoInv')
+  .then(response => response.json())
+  .then(data => {
+      const { descripcion_proyecto } = data.data;
+      
+      document.querySelector('.descripcionProyectoInv').innerHTML = descripcion_proyecto;
+       });
+  //termina proyecto investigacion
     fetch(URL + 'items/Nicotina')
         .then(response => response.json())
         .then(data => {

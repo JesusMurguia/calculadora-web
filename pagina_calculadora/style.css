@@ -11,6 +11,7 @@ background: #FFFFFF;
 background: -webkit-radial-gradient(center, #FFFFFF, #EEF2F2);
 background: -moz-radial-gradient(center, #FFFFFF, #EEF2F2);
 background: radial-gradient(ellipse at center, #FFFFFF, #EEF2F2);
+
 }
 :root {
 	font-family: "Epilogue", sans-serif;
@@ -62,12 +63,14 @@ a {
 nav ul li > a{
 	position: relative;
 }
+
 nav {
+	
 	display: flex;
 	align-items: center;
 	justify-content: start;
-	padding: 2rem 2rem 0 2rem;
-	
+	font-size: 20px;
+	/*background: rgba(99, 200, 158, 0.5);*/
 	
 }
 
@@ -109,7 +112,16 @@ nav ul li .btns:hover::before{
 	margin-left: auto;
 	cursor: pointer;
 }
-
+/*SECCION DE CALCULADORA*/
+.calculadorsita{
+	color: #00494d;
+	justify-content: end;
+	text-align: end;
+	margin-right: 2rem;
+}
+.calculadorsita h1{
+	font-size: 2em;
+}
 .nav-mobile-content {
 	background-color: var(--white);
 	position: absolute;
@@ -153,6 +165,7 @@ nav ul li .btns:hover::before{
 
 .nav-btns {
 	margin-left: auto;
+	padding-right: 2em;
 	display: none;
 	gap: 2rem;
 	align-items: center;
@@ -247,7 +260,6 @@ nav ul li .btns:hover::before{
 	font-size: small;
 	font-weight: 700;
 	color: var(--very-dark-cyan);
-	text-align: center;
 }
 
 .learn-more p {
@@ -290,7 +302,8 @@ nav ul li .btns:hover::before{
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: repeat(3, min-content);
-	padding-block: 4rem;
+	padding-block-end: 1rem;
+	padding-block-start: 1Drem;
 	gap: 2rem;
 	
 }
@@ -472,7 +485,6 @@ nav ul li .btns:hover::before{
 	flex-direction: column;
 	justify-content: center;
 	text-align: justify;
-	padding-left: 60px;
 	}
 
 	
@@ -485,7 +497,7 @@ nav ul li .btns:hover::before{
 	.learn-more h1 {
 		font-size: 32px;
 		font-weight: 700;
-		width: 85%;
+		width: 100%;
 		margin-bottom: 0;
 	}
 
@@ -496,6 +508,14 @@ nav ul li .btns:hover::before{
 		width: 100%;
 		justify-content: center;
 	}
+	.proyectoInvestigacion-text h1{
+		font-size: 32px;
+		font-weight: 700;
+		width: 85%;
+		margin-bottom: 0;
+	}
+
+	
 
 	.btn-primary {
 		margin-inline: 0;
