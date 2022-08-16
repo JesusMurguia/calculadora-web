@@ -27,7 +27,9 @@ background: radial-gradient(ellipse at center, #FFFFFF, #EEF2F2);
 	--light-grayish-cyan-2: hsl(189, 41%, 97%);
 	--white: hsl(0, 0%, 100%);
 }
-
+.section-proyectoInvestigacion{
+	display: none;
+}
 .rich-text img {
 	height: min-content !important;
 	width: min-content !important;
@@ -43,7 +45,9 @@ body {
 	
 
 }
-
+.calculadorsita{
+	display: none;
+}
 ul {
 	display: flex;
 	gap: 2rem;
@@ -112,16 +116,7 @@ nav ul li .btns:hover::before{
 	margin-left: auto;
 	cursor: pointer;
 }
-/*SECCION DE CALCULADORA*/
-.calculadorsita{
-	color: #00494d;
-	justify-content: end;
-	text-align: end;
-	margin-right: 2rem;
-}
-.calculadorsita h1{
-	font-size: 2em;
-}
+
 .nav-mobile-content {
 	background-color: var(--white);
 	position: absolute;
@@ -558,4 +553,15 @@ nav ul li .btns:hover::before{
 		display: flex;
 		margin-left: 0;
 	}
+	/*SECCION DE CALCULADORA*/
+.calculadorsita{
+	display: block;
+	color: #00494d !important;
+	justify-content: end !important;
+	text-align: end !important;
+	margin-right: 2rem !important;
+}
+.calculadorsita h1{
+	font-size: 2em !important;
+}
 }
