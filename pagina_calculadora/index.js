@@ -50,7 +50,7 @@ window.onload = function () {
 /**DIRECTUS */
 /**----------------------------------------------------- */
 
-    const URL = 'http://localhost:8055/';
+    const URL = 'http://ec2-3-92-181-41.compute-1.amazonaws.com:8055/';
 
     fetch(URL + 'items/Calculadora')
         .then(response => response.json())
