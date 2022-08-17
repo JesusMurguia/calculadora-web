@@ -14,7 +14,6 @@ export default class formSecondSection {
 	}
 	submit(event) {
 		event.preventDefault();
-
 		//guardar valores del formulario
 		const formData = new FormData(this.form);
 		this.paciente.edad = Number(formData.get("edad"));
@@ -22,7 +21,11 @@ export default class formSecondSection {
 		this.paciente.genero = formData.get("genero");
 		this.paciente.cigarrillosDia = Number(formData.get("cigarrillos-dia"));
 
-		this.googleAuth();
+		if (localStorage.getItem("token")) {
+			this.paciente.id = localStorage.getItem("token");
+			localStorage.removeItem("token");
+			this.next(this.paciente);
+		}
 	}
 	next(paciente) {
 		// se sube la pantalla hasta el resultado para movil

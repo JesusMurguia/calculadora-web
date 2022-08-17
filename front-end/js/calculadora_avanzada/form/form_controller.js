@@ -4,7 +4,7 @@ import fetchAPI from "../services/fetchAPI.js";
 import FormPopulator from "./form_populator.js";
 
 class FormController {
-  constructor() {}
+  constructor() { }
   init() {
     this.multiStepForm = document.querySelector("[data-multi-step]");
     this.formSteps = [...this.multiStepForm.querySelectorAll("[data-step]")];
@@ -63,8 +63,11 @@ class FormController {
       new FormData(this.multiStepForm)
     );
 
-    const googleAuthService = new googleAuth(this, paciente);
-    googleAuthService.appStart();
+    if (localStorage.getItem("token")) {
+      paciente.id = localStorage.getItem("token");
+      localStorage.removeItem("token");
+      this.next(paciente);
+    }
   }
   async next(paciente) {
     const result = await fetchAPI.postPaciente(paciente);
