@@ -2,7 +2,7 @@ export default class fetchAPI {
   constructor() { }
 
   static postPaciente(paciente) {
-    return fetch("https://borregotestnet.ddns.net/api/paciente_basico", {
+    return fetch("https://apicalculadora.borrego-research.com/api/paciente_basico", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -13,7 +13,7 @@ export default class fetchAPI {
     }).then((res) => res.json());
   }
   static postPacienteSkip(paciente) {
-    return fetch("https://borregotestnet.ddns.net/api/pacienteBasico/skip", {
+    return fetch("https://apicalculadora.borrego-research.com/api/pacienteBasico/skip", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

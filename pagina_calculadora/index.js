@@ -46,11 +46,11 @@ window.onload = function () {
             });
         });
     });
-/**----------------------------------------------------- */
-/**DIRECTUS */
-/**----------------------------------------------------- */
+    /**----------------------------------------------------- */
+    /**DIRECTUS */
+    /**----------------------------------------------------- */
 
-    const URL = 'http://ec2-3-92-181-41.compute-1.amazonaws.com:8055/';
+    const URL = 'https://calculadora.borrego-research.com:8080/';
 
     fetch(URL + 'items/Calculadora')
         .then(response => response.json())
@@ -60,15 +60,15 @@ window.onload = function () {
             document.querySelector('.section1-description').innerHTML = introduccion_texto;
             document.querySelector('.section1-img').src = `${URL}assets/${Imagen_de_calculadora}`;
         });
-  //proyecto investigacion
-  fetch(URL + 'items/ProyectoInv')
-  .then(response => response.json())
-  .then(data => {
-      const { descripcion_proyecto } = data.data;
-      
-      document.querySelector('.descripcionProyectoInv').innerHTML = descripcion_proyecto;
-       });
-  //termina proyecto investigacion
+    //proyecto investigacion
+    fetch(URL + 'items/ProyectoInv')
+        .then(response => response.json())
+        .then(data => {
+            const { descripcion_proyecto } = data.data;
+
+            document.querySelector('.descripcionProyectoInv').innerHTML = descripcion_proyecto;
+        });
+    //termina proyecto investigacion
     fetch(URL + 'items/Nicotina')
         .then(response => response.json())
         .then(data => {

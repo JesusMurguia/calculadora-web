@@ -2,7 +2,7 @@ export default class fetchAPI {
   constructor() { }
 
   static postPaciente(paciente) {
-    return fetch("https://borregotestnet.ddns.net/api/paciente_avanzado", {
+    return fetch("https://apicalculadora.borrego-research.com/api/paciente_avanzado", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -14,7 +14,7 @@ export default class fetchAPI {
   }
   static getVariacionGenetica() {
     return fetch(
-      "https://borregotestnet.ddns.net/api/genetic_score_dictionary",
+      "https://apicalculadora.borrego-research.com/api/genetic_score_dictionary",
       {
         method: "GET",
         headers: {

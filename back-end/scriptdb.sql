@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `calculadora` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE  IF NOT EXISTS `calculadora` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `calculadora`;
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
@@ -9,7 +9,7 @@ USE `calculadora`;
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -23,7 +23,7 @@ USE `calculadora`;
 
 DROP TABLE IF EXISTS `metabolitos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `metabolitos` (
   `idpaciente` varchar(45) NOT NULL,
   `3HC_O_Gluc` double DEFAULT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE `metabolitos` (
   PRIMARY KEY (`idpaciente`),
   UNIQUE KEY `idpaciente_UNIQUE` (`idpaciente`),
   CONSTRAINT `paciente_metabolitos` FOREIGN KEY (`idpaciente`) REFERENCES `paciente_avanzado` (`idpaciente`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -54,7 +54,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `metabolitos_riesgo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `metabolitos_riesgo` (
   `idpaciente` varchar(45) NOT NULL,
   `3HC_O_Gluc` varchar(45) DEFAULT NULL,
@@ -67,7 +67,7 @@ CREATE TABLE `metabolitos_riesgo` (
   PRIMARY KEY (`idpaciente`),
   UNIQUE KEY `idpaciente_UNIQUE` (`idpaciente`),
   CONSTRAINT `idpaciente_metabolitos_riesgo` FOREIGN KEY (`idpaciente`) REFERENCES `metabolitos` (`idpaciente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -86,7 +86,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `paciente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `paciente` (
   `idpaciente` varchar(45) NOT NULL,
   `edad` int NOT NULL,
@@ -96,7 +96,7 @@ CREATE TABLE `paciente` (
   `cigarrillosDia_riesgo` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idpaciente`),
   UNIQUE KEY `idpaciente_UNIQUE` (`idpaciente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,13 +115,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `paciente_avanzado`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `paciente_avanzado` (
   `idpaciente` varchar(45) NOT NULL,
   PRIMARY KEY (`idpaciente`),
   UNIQUE KEY `idpaciente_UNIQUE` (`idpaciente`),
   CONSTRAINT `paciente_avanzado` FOREIGN KEY (`idpaciente`) REFERENCES `paciente` (`idpaciente`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,7 +140,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `paciente_basico`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `paciente_basico` (
   `idpaciente` varchar(45) NOT NULL,
   `puntos` int NOT NULL,
@@ -148,7 +148,7 @@ CREATE TABLE `paciente_basico` (
   PRIMARY KEY (`idpaciente`),
   UNIQUE KEY `idpaciente_UNIQUE` (`idpaciente`),
   CONSTRAINT `paciente_basico` FOREIGN KEY (`idpaciente`) REFERENCES `paciente` (`idpaciente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -167,7 +167,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `variacion_genetica`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `variacion_genetica` (
   `idpaciente` varchar(45) NOT NULL,
   `rs2431413` float DEFAULT NULL,
@@ -182,7 +182,7 @@ CREATE TABLE `variacion_genetica` (
   PRIMARY KEY (`idpaciente`),
   UNIQUE KEY `idpaciente_UNIQUE` (`idpaciente`),
   CONSTRAINT `paciente_variacion_genetica` FOREIGN KEY (`idpaciente`) REFERENCES `paciente_avanzado` (`idpaciente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -201,7 +201,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `variacion_genetica_diccionario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `variacion_genetica_diccionario` (
   `idvariacion_genetica` int NOT NULL,
   `snp` varchar(45) NOT NULL,
@@ -213,7 +213,7 @@ CREATE TABLE `variacion_genetica_diccionario` (
   `het_riesgo` float NOT NULL,
   `mut_riesgo` float NOT NULL,
   PRIMARY KEY (`idvariacion_genetica`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
