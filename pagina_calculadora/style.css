@@ -3,15 +3,14 @@
 *::before {
 	box-sizing: border-box;
 }
-html{
-/* Created with https://www.css-gradient.com */
-/* Created with https://www.css-gradient.com */
-/* Created with https://www.css-gradient.com */
-background: #FFFFFF;
-background: -webkit-radial-gradient(center, #FFFFFF, #EEF2F2);
-background: -moz-radial-gradient(center, #FFFFFF, #EEF2F2);
-background: radial-gradient(ellipse at center, #FFFFFF, #EEF2F2);
-
+html {
+	/* Created with https://www.css-gradient.com */
+	/* Created with https://www.css-gradient.com */
+	/* Created with https://www.css-gradient.com */
+	background: #ffffff;
+	background: -webkit-radial-gradient(center, #ffffff, #eef2f2);
+	background: -moz-radial-gradient(center, #ffffff, #eef2f2);
+	background: radial-gradient(ellipse at center, #ffffff, #eef2f2);
 }
 :root {
 	font-family: "Epilogue", sans-serif;
@@ -27,7 +26,7 @@ background: radial-gradient(ellipse at center, #FFFFFF, #EEF2F2);
 	--light-grayish-cyan-2: hsl(189, 41%, 97%);
 	--white: hsl(0, 0%, 100%);
 }
-.section-proyectoInvestigacion{
+.section-proyectoInvestigacion {
 	display: none;
 }
 .rich-text img {
@@ -42,10 +41,8 @@ body {
 	padding: 0;
 	width: 100%;
 	height: 100vh;
-	
-
 }
-.calculadorsita{
+.calculadorsita {
 	display: none;
 }
 ul {
@@ -64,41 +61,35 @@ a {
 	background: none;
 	border: none;
 }
-nav ul li > a{
+nav ul li > a {
 	position: relative;
 }
 
 nav {
-	
 	display: flex;
 	align-items: center;
 	justify-content: start;
 	font-size: 20px;
 	/*background: rgba(99, 200, 158, 0.5);*/
-	
 }
 
 .nav-dropdown {
 	display: none;
-	
-
 }
-nav ul li .btns::before{
-	content:"";
+nav ul li .btns::before {
+	content: "";
 	position: absolute;
 	display: block;
 	left: 0;
-	bottom:0;
+	bottom: 0;
 	width: 100%;
 	height: 2px;
 	transform: scaleX(0);
 	transition: transform 0.3s ease;
 	background-color: var(--very-dark-cyan);
-
 }
-nav ul li .btns:hover::before{
+nav ul li .btns:hover::before {
 	transform: scaleX(1);
-
 }
 
 .nav-mobile {
@@ -115,6 +106,7 @@ nav ul li .btns:hover::before{
 	align-self: center;
 	margin-left: auto;
 	cursor: pointer;
+	padding: 2rem;
 }
 
 .nav-mobile-content {
@@ -186,7 +178,6 @@ nav ul li .btns:hover::before{
 .dropdown-btn {
 	padding-right: 1.5rem;
 	position: relative;
-	
 }
 
 .dropdown-btn::after {
@@ -252,14 +243,12 @@ nav ul li .btns:hover::before{
 }
 
 .learn-more h1 {
-	font-size: small;
 	font-weight: 700;
 	color: var(--very-dark-cyan);
 }
 
 .learn-more p {
 	color: var(--dark-grayish-cyan);
-	font-size: 12px;
 	line-height: 1.5;
 	color: var(--very-dark-cyan);
 }
@@ -300,7 +289,6 @@ nav ul li .btns:hover::before{
 	padding-block-end: 1rem;
 	padding-block-start: 1Drem;
 	gap: 2rem;
-	
 }
 
 .learn-more {
@@ -382,7 +370,6 @@ nav ul li .btns:hover::before{
 	display: grid;
 	padding: 1rem;
 	box-shadow: 0 0.125em 0.25em var(--dark-grayish-cyan);
-	
 }
 .grid {
 	display: grid;
@@ -409,6 +396,14 @@ nav ul li .btns:hover::before{
 	color: var(--white) !important;
 }
 
+.descripcionProyectoInv {
+	width: min(100%, 70rem) !important;
+}
+
+.descripcionProyectoInv img {
+	max-width: min(100%, 70rem);
+}
+
 @media (min-width: 876px) {
 	.grid {
 		display: grid;
@@ -424,7 +419,7 @@ nav ul li .btns:hover::before{
 		gap: 2rem;
 	}
 
-	.card-1 {
+	/* .card-1 {
 		grid-column: 1 / 3;
 		grid-row: 1 / 1;
 	}
@@ -443,7 +438,7 @@ nav ul li .btns:hover::before{
 	.card-5 {
 		grid-column: 4 / 4;
 		grid-row: 1 / -1;
-	}
+	} */
 	.grid-2 > .card > p,
 	.grid-2 > .card > h3 {
 		color: var(--white) !important;
@@ -473,16 +468,14 @@ nav ul li .btns:hover::before{
 		grid-template-columns: 100%;
 		grid-template-rows: 1fr;
 	}
-	.intro{
-	grid-column: 1;
-	grid-row: 1;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	text-align: justify;
+	.intro {
+		grid-column: 1;
+		grid-row: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: justify;
 	}
-
-	
 
 	.hero {
 		grid-column: 2 / 2;
@@ -503,14 +496,12 @@ nav ul li .btns:hover::before{
 		width: 100%;
 		justify-content: center;
 	}
-	.proyectoInvestigacion-text h1{
+	.proyectoInvestigacion-text h1 {
 		font-size: 32px;
 		font-weight: 700;
 		width: 85%;
 		margin-bottom: 0;
 	}
-
-	
 
 	.btn-primary {
 		margin-inline: 0;
@@ -519,9 +510,8 @@ nav ul li .btns:hover::before{
 
 	.nav-dropdown {
 		display: flex !important;
-		
 	}
-	
+
 	.nav-mobile {
 		display: none !important;
 	}
@@ -554,14 +544,14 @@ nav ul li .btns:hover::before{
 		margin-left: 0;
 	}
 	/*SECCION DE CALCULADORA*/
-.calculadorsita{
-	display: block;
-	color: #00494d !important;
-	justify-content: end !important;
-	text-align: end !important;
-	margin-right: 2rem !important;
-}
-.calculadorsita h1{
-	font-size: 2em !important;
-}
+	.calculadorsita {
+		display: block;
+		color: #00494d !important;
+		justify-content: end !important;
+		text-align: end !important;
+		margin-right: 2rem !important;
+	}
+	.calculadorsita h1 {
+		font-size: 2em !important;
+	}
 }
