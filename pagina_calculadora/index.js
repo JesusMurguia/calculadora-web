@@ -65,7 +65,6 @@ window.onload = function () {
         .then(response => response.json())
         .then(data => {
             const { descripcion_proyecto } = data.data;
-
             document.querySelector('.descripcionProyectoInv').innerHTML = descripcion_proyecto;
         });
     //termina proyecto investigacion
@@ -76,6 +75,9 @@ window.onload = function () {
             document.querySelector('.section2-title').innerHTML = Titulo;
             document.querySelector('.section2-description').innerHTML = Descripcion;
             document.querySelector('.section2-img').src = `${URL}assets/${Imagen_Nicotina}`;
+
+            document.getElementById('loading').classList.add('hidden')
+            document.getElementById('main').classList.remove('hidden')
         });
 
     fetch(URL + 'items/Metabolitos')
